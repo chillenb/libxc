@@ -469,7 +469,7 @@ set(CMAKE_INSTALL_RPATH ${base} ${base}/${relDir})
 
 # STATIC/SHARED on below governed by BUILD_SHARED_LIBS
 add_library(xc ${sources_list})
-target_link_libraries(xc INTERFACE ${STANDARD_MATH_LIBRARY})
+target_link_libraries(xc PUBLIC ${STANDARD_MATH_LIBRARY})
 set_target_properties(xc PROPERTIES POSITION_INDEPENDENT_CODE ${BUILD_FPIC}
   SOVERSION ${${PROJECT_NAME}_SOMAJOR})
 if(${BUILD_SHARED_LIBS})
