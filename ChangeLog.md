@@ -1,3 +1,17 @@
+## [6.2.0] - 2023-05-26
+
+This is again a bugfix release, which also adds some functionals.
+
+### Fixed 
+- CMake does not link standard math library in shared xc library (#465)
+- Taylor expansions used in GGA_C_REVTCA, GGA_K_VT84F, MGGA_X_FT98 were not of sufficient to guarantee accuracy of all derivatives (#449)
+- Replaced hard cutoff in MGGA_X_MBRXC_BG with a Taylor expansion (!607)
+- StandardMathLibraryC.cmake reusing variable names (!585)
+
+### Added
+- Machine learned functionals from Kovacs et al, kindly contributed by Peter Kovacs (!600 and !614)
+
+
 ## [6.1.0] - 2023-01-10
 
 This is a bugfix release, which also adds some functionals.
