@@ -78,6 +78,7 @@ AC_SEARCH_LIBS([erf], [m])
 # libxc-6.0.0  12:0:0
 # libxc-6.1.0  13:0:1
 # libxc-6.2.0  14:0:2
+# libxc-6.2.1  14:1:2
 # 
 # Note that libtool versioning was not used prior to libxc-2.0.
 # Because of this, we will start counting at 1.
@@ -95,7 +96,7 @@ AC_SEARCH_LIBS([erf], [m])
 # so set to 0 if both happened.
 
 XC_CURRENT=14
-XC_REVISION=0
+XC_REVISION=1
 XC_AGE=2
 
 XC_LT_VERSION="${XC_CURRENT}:${XC_REVISION}:${XC_AGE}"
