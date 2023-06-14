@@ -1,3 +1,10 @@
+## [6.2.2] - 2023-06-14
+
+Hotfix to fix the dimension of some of the fourth derivative arrays.
+
+### Fixed
+- Dimension of v4rhosigma2lapl, v4rhosigma2tau, v4rhosigmatau2, v4sigma3tau arrays was wrong (#472)
+
 ## [6.2.1] - 2023-06-13
 
 Hotfix to disable use of host-specific instructions by default in CMake.
