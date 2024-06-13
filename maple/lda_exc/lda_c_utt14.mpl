@@ -34,6 +34,6 @@ utt14_f := beta -> 18432*Pi*beta^6 + 18432*beta^5*sqrt(Pi)*(sqrt(2)-5) + 1728*be
 (* Energy density; require significant proton and electron density *)
 f_utt14 := (rs, zeta) ->
         my_piecewise3(screen_dens(rs,zeta) and screen_dens(rs,-zeta), 0,
-        utt14_E(n_spin(rs, z_thr(zeta)) * n_spin(rs, z_thr(-zeta))) / n_total(rs)):
+        utt14_E(n_spin(rs, z_thr(zeta)), n_spin(rs, z_thr(-zeta))) / n_total(rs)):
 
 f := (rs, zeta) -> f_utt14(rs, zeta):

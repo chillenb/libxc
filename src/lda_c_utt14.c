@@ -11,14 +11,15 @@
 #define XC_LDA_C_UTT14     332  /* Electron-nucleus correlation functional by Udagawa, Tsuneda, and Tachikawa   */
 
 typedef struct {
+  double q;
   double Z;
 } lda_c_utt14_params;
 
-#define N_PAR 1
-static const char  *names[N_PAR]  = {"Z"};
-static const char  *desc[N_PAR]   = {"Nuclear charge"};
+#define N_PAR 2
+static const char  *names[N_PAR]  = {"_q", "_Z"};
+static const char  *desc[N_PAR]   = {"q parameter", "Nuclear charge"};
 
-static const double par_utt14[N_PAR]   = {1.0};
+static const double par_utt14[N_PAR]   = {4.971, 1.0};
 
 static void
 lda_c_utt14_init(xc_func_type *p)
