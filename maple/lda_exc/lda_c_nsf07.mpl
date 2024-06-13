@@ -18,7 +18,7 @@
 nsf07_beta := rho_e -> params_a_q * rho_e^(1/3):
 
 (* Equation (11) *)
-nsf07_E := (rho_e, rho_p) -> rho_e*rho_p * (Pi*params_a_Z^2*((24+(-9+2*sqrt(2))*Pi)*Z + 4*(-4+Pi)*sqrt(Pi)*nsf07_beta(rho_e))) / (2*Pi*nsf07_beta(rho_e)^4 * exp(4*params_a_Z*(params_a_Z-sqrt(Pi)*nsf07_beta(rho_e))/(Pi*nsf07_beta(rho_e)^2))):
+nsf07_E := (rho_e, rho_p) -> rho_e*rho_p * (Pi*params_a_Z^2*((24+(-9+2*sqrt(2))*Pi)*params_a_Z + 4*(-4+Pi)*sqrt(Pi)*nsf07_beta(rho_e))) / (2*Pi*nsf07_beta(rho_e)^4 * exp(4*params_a_Z*(params_a_Z-sqrt(Pi)*nsf07_beta(rho_e))/(Pi*nsf07_beta(rho_e)^2))):
 
 (* Energy density; require significant proton and electron density *)
 f_nsf07 := (rs, zeta) ->
