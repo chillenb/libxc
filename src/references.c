@@ -1728,6 +1728,13 @@ func_reference_type xc_ref_Mejia2020_121109 = {
   "Mejia2020_121109"
 };
 
+func_reference_type xc_ref_MejiaRodriguez2019_174115 = {
+  "D. Mejía-Rodríguez and A. de la Lande.,  J. Chem. Phys. 150, 174115 (2019)",
+  "10.1063/1.5078596",
+  "@article{MejiaRodriguez2019_174115,\n  author = {Mej\\'{i}a-Rodr\\'{i}guez, Daniel and de la Lande, Aur\\'{e}lien},\n  title = {{Multicomponent density functional theory with density fitting}},\n  journal = {J. Chem. Phys.},\n  volume = {150},\n  number = {17},\n  pages = {174115},\n  year = {2019},\n  month = {05},\n  doi = {10.1063/1.5078596},\n  url = {https://doi.org/10.1063/1.5078596}\n}\n",
+  "MejiaRodriguez2019_174115"
+};
+
 func_reference_type xc_ref_Menconi2001_3958 = {
   "G. Menconi, P. J. Wilson, and D. J. Tozer.,  J. Chem. Phys. 114, 3958 (2001)",
   "10.1063/1.1342776",
@@ -2657,6 +2664,13 @@ func_reference_type xc_ref_Tsuneda2000_15527 = {
   "10.1103/PhysRevB.62.15527",
   "@article{Tsuneda2000_15527,\n  author = {Tsuneda, Takao and Hirao, Kimihiko},\n  title = {Parameter-free exchange functional},\n  journal = {Phys. Rev. B},\n  volume = {62},\n  issue = {23},\n  pages = {15527--15531},\n  year = {2000},\n  month = {Dec},\n  publisher = {American Physical Society},\n  doi = {10.1103/PhysRevB.62.15527},\n  url = {https://link.aps.org/doi/10.1103/PhysRevB.62.15527}\n}\n",
   "Tsuneda2000_15527"
+};
+
+func_reference_type xc_ref_Udagawa2014_052519 = {
+  "T. Udagawa, T. Tsuneda, and M. Tachikawa.,  Phys. Rev. A 89, 052519 (2014)",
+  "10.1103/PhysRevA.89.052519",
+  "@article{Udagawa2014_052519,\n  author = {Udagawa, Taro and Tsuneda, Takao and Tachikawa, Masanori},\n  title = {Electron-nucleus correlation functional for multicomponent density-functional theory},\n  journal = {Phys. Rev. A},\n  volume = {89},\n  issue = {5},\n  pages = {052519},\n  numpages = {6},\n  year = {2014},\n  month = {May},\n  publisher = {American Physical Society},\n  doi = {10.1103/PhysRevA.89.052519},\n  url = {https://link.aps.org/doi/10.1103/PhysRevA.89.052519}\n}\n",
+  "Udagawa2014_052519"
 };
 
 func_reference_type xc_ref_Ugalde1994_423 = {
