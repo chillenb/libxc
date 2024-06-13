@@ -1203,6 +1203,13 @@ func_reference_type xc_ref_Iikura2001_3540 = {
   "Iikura2001_3540"
 };
 
+func_reference_type xc_ref_Imamura2008_735 = {
+  "Y. Imamura, H. Kiryu, and H. Nakai.,  J. Comput. Chem. 29, 735–740 (2008)",
+  "https://doi.org/10.1002/jcc.20840",
+  "@article{Imamura2008_735,\n  author = {Imamura, Yutaka and Kiryu, Hiroyoshi and Nakai, Hiromi},\n  title = {{Colle}--{Salvetti}-type correction for electron-nucleus correlation in the nuclear orbital plus molecular orbital theory},\n  journal = {J. Comput. Chem.},\n  volume = {29},\n  number = {5},\n  pages = {735--740},\n  doi = {https://doi.org/10.1002/jcc.20840},\n  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.20840},\n  year = {2008}\n}\n",
+  "Imamura2008_735"
+};
+
 func_reference_type xc_ref_Jana2017_4804 = {
   "S. Jana and P. Samal.,  J. Phys. Chem. A 121, 4804-4811 (2017)",
   "10.1021/acs.jpca.7b03686",

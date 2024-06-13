@@ -183,6 +183,7 @@ extern func_reference_type xc_ref_Hoe2001_319;
 extern func_reference_type xc_ref_Hu1985_391;
 extern func_reference_type xc_ref_Hui2016_044114;
 extern func_reference_type xc_ref_Iikura2001_3540;
+extern func_reference_type xc_ref_Imamura2008_735;
 extern func_reference_type xc_ref_Jana2017_4804;
 extern func_reference_type xc_ref_Jana2018_1;
 extern func_reference_type xc_ref_Jana2018_8999;
