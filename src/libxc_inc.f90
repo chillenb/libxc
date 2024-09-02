@@ -1000,6 +1000,9 @@
  ! Minnesota CF22D correlation functional
  integer(c_int), parameter, public :: XC_MGGA_C_CF22D  =    341
 
+ ! Lebeda-Aschebrock-Kummel meta-GGA exchange
+ integer(c_int), parameter, public :: XC_MGGA_X_LAK  =    342
+
  ! opB3LYP: B3LYP reoptimized in 6-311++G(2d,2p) basis set
  integer(c_int), parameter, public :: XC_HYB_GGA_XC_OPB3LYP  =    386
 

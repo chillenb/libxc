@@ -450,6 +450,7 @@ set(raw_sources_list
   mgga_x_vcml.c
   hyb_mgga_xc_r2scan.c
   mgga_x_eel.c
+  mgga_x_lak.c
   mix_func.c
   deorbitalize_func.c
   references.c

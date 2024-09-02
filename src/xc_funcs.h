@@ -332,6 +332,7 @@
 #define  XC_GGA_X_BKL2                     339 /* Type-II band gap functional by Bhattacharjee, Koshi and Lee */
 #define  XC_HYB_MGGA_X_CF22D               340 /* Minnesota CF22D hybrid exchange functional */
 #define  XC_MGGA_C_CF22D                   341 /* Minnesota CF22D correlation functional */
+#define  XC_MGGA_X_LAK                     342 /* Lebeda-Aschebrock-Kummel meta-GGA exchange */
 #define  XC_HYB_GGA_XC_OPB3LYP             386 /* opB3LYP: B3LYP reoptimized in 6-311++G(2d,2p) basis set */
 #define  XC_MGGA_C_CC                      387 /* Self-interaction corrected correlation functional by Schmidt et al */
 #define  XC_MGGA_C_CCALDA                  388 /* Iso-orbital corrected LDA correlation by Lebeda et al */

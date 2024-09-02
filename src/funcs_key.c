@@ -335,6 +335,7 @@ xc_functional_key_t xc_functional_keys[] = {
   {"gga_x_bkl2", 339},
   {"hyb_mgga_x_cf22d", 340},
   {"mgga_c_cf22d", 341},
+  {"mgga_x_lak", 342},
   {"hyb_gga_xc_opb3lyp", 386},
   {"mgga_c_cc", 387},
   {"mgga_c_ccalda", 388},
