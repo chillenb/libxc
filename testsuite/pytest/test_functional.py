@@ -9,12 +9,12 @@ import pylibxc
 
 compute_test_dim = 5
 
-np.random.seed(0)
+rng = np.random.default_rng(seed=0)
 
 
 def _dict_array_comp(test, ref, keys):
     for key in keys:
-        tmp = np.testing.assert_allclose(test[key], ref[key])
+        np.testing.assert_allclose(test[key], ref[key])
         # print(key, np.allclose(test[key], ref[key]), np.linalg.norm(test[key] - ref[key]))
     return True
 
@@ -103,7 +103,7 @@ def test_lda_compute(polar):
     # Build input
     ndim = _size_tuples[polar]
     inp = {}
-    inp["rho"] = np.random.random((compute_test_dim * ndim[0]))
+    inp["rho"] = rng.random(compute_test_dim * ndim[0])
 
     func = pylibxc.LibXCFunctional("lda_c_vwn", polar)
 
@@ -152,8 +152,8 @@ def test_gga_compute(polar):
     # Build input
     ndim = _size_tuples[polar]
     inp = {}
-    inp["rho"] = np.random.random((compute_test_dim * ndim[0]))
-    inp["sigma"] = np.random.random((compute_test_dim * ndim[1]))
+    inp["rho"] = rng.random(compute_test_dim * ndim[0])
+    inp["sigma"] = rng.random(compute_test_dim * ndim[1])
 
     # Compute
     func = pylibxc.LibXCFunctional("gga_c_pbe", polar)
@@ -203,9 +203,9 @@ def test_mgga_compute(polar):
     ndim = _size_tuples[polar]
 
     inp = {}
-    inp["rho"] = np.random.random((compute_test_dim * ndim[0]))
-    inp["sigma"] = np.random.random((compute_test_dim * ndim[1]))
-    inp["tau"] = np.random.random((compute_test_dim * ndim[3]))
+    inp["rho"] = rng.random(compute_test_dim * ndim[0])
+    inp["sigma"] = rng.random(compute_test_dim * ndim[1])
+    inp["tau"] = rng.random(compute_test_dim * ndim[3])
 
     # Compute
     func = pylibxc.LibXCFunctional("mgga_c_tpss", polar)
@@ -230,10 +230,10 @@ def test_mgga_lapl_compute(polar):
     ndim = _size_tuples[polar]
 
     inp = {}
-    inp["rho"] = np.random.random((compute_test_dim * ndim[0]))
-    inp["sigma"] = np.random.random((compute_test_dim * ndim[1]))
-    inp["tau"] = np.random.random((compute_test_dim * ndim[3]))
-    inp["lapl"] = np.random.random((compute_test_dim * ndim[3]))
+    inp["rho"] = rng.random(compute_test_dim * ndim[0])
+    inp["sigma"] = rng.random(compute_test_dim * ndim[1])
+    inp["tau"] = rng.random(compute_test_dim * ndim[3])
+    inp["lapl"] = rng.random(compute_test_dim * ndim[3])
 
     # Compute
     func = pylibxc.LibXCFunctional("mgga_x_br89", polar)
@@ -258,17 +258,16 @@ def test_mgga_lapl_compute(polar):
 
 @pytest.mark.parametrize("polar", [("unpolarized"), ("polarized")])
 def test_deriv_flags(polar):
-    func = pylibxc.LibXCFunctional("mgga_c_tpss", polar)
-
     ndim = _size_tuples[polar]
     inp = {}
-    inp["rho"] = np.random.random((compute_test_dim * ndim[0]))
-    inp["sigma"] = np.random.random((compute_test_dim * ndim[1]))
-    inp["tau"] = np.random.random((compute_test_dim * ndim[3]))
-    inp["lapl"] = np.random.random((compute_test_dim * ndim[3]))
+    inp["rho"] = rng.random(compute_test_dim * ndim[0])
+    inp["sigma"] = rng.random(compute_test_dim * ndim[1])
+    inp["tau"] = rng.random(compute_test_dim * ndim[3])
+    inp["lapl"] = rng.random(compute_test_dim * ndim[3])
 
     # disabled as mgga_c_tpss now has fxc
     # please fix this better!
+    #func = pylibxc.LibXCFunctional("mgga_c_tpss", polar)
     #with pytest.raises(ValueError):
     #    func.compute(inp, do_fxc=True)
 
