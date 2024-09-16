@@ -766,7 +766,7 @@ class LibXCFunctional:
                 input_labels.append("lapl")
             if self._needs_tau:
                 input_labels.append("tau")
-            input_num_args = len(input_labels)
+            input_num_args = 4 # this is how it needs to be
 
             output_labels = [
                 "zk",                                                                # 1, 1
@@ -804,6 +804,8 @@ class LibXCFunctional:
             args.extend([   inp[x] for x in  input_labels])
             if not self._needs_laplacian:
                 args.insert(-1, np.empty(1))  # Add none ptr to laplacian
+            if not self._needs_tau:
+                args.insert(-1, np.empty(1))  # Add none ptr to tau
             args.extend([output[x] for x in output_labels])
 
             core.xc_mgga(*args)
