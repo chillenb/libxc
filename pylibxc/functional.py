@@ -2,6 +2,7 @@
 Binds a LibXC Functional struct to a Python object
 """
 
+import sys
 import ctypes
 import numpy as np
 
@@ -25,9 +26,9 @@ def _from_param(cls, obj):
     return _ndptr_w_base.from_param(obj)
 
 _ndptr_w = type(
-    "Writable NP Array",
+    'Writable NP Array',
     (_ndptr_w_base,),
-    {"from_param": classmethod(_from_param)}
+    {'from_param': classmethod(_from_param)}
 )
 
 _xc_func_p = ctypes.POINTER(structs.xc_func_type)
@@ -154,7 +155,7 @@ def _check_arrays(current_arrays, fields, sizes, factor, required):
     return current_arrays
 
 
-class LibXCFunctional:
+class LibXCFunctional(object):
     def __init__(self, func_name, spin):
         """
         The primary LibXCFunctional class used to build and compute DFT exchange-correlation quantities.
@@ -250,7 +251,7 @@ class LibXCFunctional:
 
         # Set needed flags
         self._needs_laplacian = self._flags & flags.XC_FLAGS_NEEDS_LAPLACIAN
-        self._needs_tau = self._flags & flags.XC_FLAGS_NEEDS_TAU
+        self._needs_tau = self._flags & flags.XC_FLAGS_NEEDS_TAU 
 
         # Set derivatives
         self._have_exc = self._flags & flags.XC_FLAGS_HAVE_EXC
@@ -292,8 +293,7 @@ class LibXCFunctional:
 
         for pos in range(flags.XC_MAX_REFERENCES):
             ref = core.xc_func_info_get_references(self.xc_func_info, pos)
-            if not ref:
-                break
+            if not ref: break
 
             self._refs.append(ref.contents.ref.decode("UTF-8"))
             self._bibtexs.append(ref.contents.bibtex.decode("UTF-8"))
@@ -316,7 +316,7 @@ class LibXCFunctional:
         """
         Provides a simple string representation with functional name data.
         """
-        return "<%s.%s (%s) object at %s>" % (self.__class__.__module__, self.__class__.__name__, self._xc_func_name,
+        return '<%s.%s (%s) object at %s>' % (self.__class__.__module__, self.__class__.__name__, self._xc_func_name,
                                               hex(id(self)))
 
     def describe(self):
@@ -539,7 +539,7 @@ class LibXCFunctional:
         core.xc_func_set_zeta_threshold(self.xc_func, ctypes.c_double(zeta_threshold))
 
     def set_sigma_threshold(self, sigma_threshold):
-        r"""Sets the smallest value allowed for sigma = \sqrt(\gamma). Smaller
+        """Sets the smallest value allowed for sigma = \sqrt(\gamma). Smaller
         values than this get overwritten in the evaluation.
 
         """
@@ -803,7 +803,7 @@ class LibXCFunctional:
 
             args.extend([   inp[x] for x in  input_labels])
             if not self._needs_laplacian:
-                args.insert(-1, np.empty(1))  # Add none ptr to laplacian
+                args.insert(-1, np.empty((1)))  # Add none ptr to laplacian
             args.extend([output[x] for x in output_labels])
 
             core.xc_mgga(*args)

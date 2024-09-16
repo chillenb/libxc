@@ -3,6 +3,7 @@ Wrappers to the LibXC C structs
 """
 
 import ctypes
+import numpy as np
 
 
 class func_reference_type(ctypes.Structure):
@@ -58,7 +59,7 @@ class xc_dimensions(ctypes.Structure):
          ("vrho", ctypes.c_int),
          ("vsigma", ctypes.c_int),
          ("vlapl", ctypes.c_int),
-         ("vtau", ctypes.c_int),
+         ("vtau", ctypes.c_int), 
 
          ("v2rho2", ctypes.c_int),
          ("v2rhosigma", ctypes.c_int),
@@ -128,7 +129,7 @@ class xc_dimensions(ctypes.Structure):
          ("v4lapltau3", ctypes.c_int),
          ("v4tau4", ctypes.c_int),
      ]
-
+   
 
 class xc_func_type(ctypes.Structure):
     """
@@ -152,7 +153,7 @@ class xc_func_type(ctypes.Structure):
         ("nlc_C", ctypes.c_double),
 
         ("dim", xc_dimensions),
-
+        
         # parameters
         ("params", ctypes.c_void_p),  # void *params;
         ("dens_threshold", ctypes.c_double),

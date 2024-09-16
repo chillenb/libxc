@@ -7,7 +7,7 @@ import pylibxc
 
 def test_xc_version():
 
-    assert tuple(map(int, pylibxc.version.__version__.split("."))) == pylibxc.util.xc_version()
+    assert tuple(map(int, pylibxc.version.__version__.split('.'))) == pylibxc.util.xc_version()
 
 
 def test_xc_string():
