@@ -116,7 +116,10 @@ Libxc will fail (most likely you will get a segmentation fault) if a CPU array i
 
 Optional Python bindings are available through the NumPy ctypes module. To install
 into Python site-packages please run:
-`pip3 install -e .`
+`pip install .`
+
+or, to install locally for development:
+`pip install -e .`
 
 The Python bindings require the CMake compilation pathway and the Python
 Numerical Python library. A short usage example is provided below:
