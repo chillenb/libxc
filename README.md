@@ -11,22 +11,21 @@ License, version 2.0, see https://www.mozilla.org/en-US/MPL/2.0/.
 For more information, please check the manual at
 http://libxc.gitlab.io
 
-## CITATION
+## Citing Libxc
 
-To cite Libxc, the up-to-date reference is
+Following good scientific practice, any publication using functionals from Libxc should cite Libxc. To cite Libxc, the current reference is
+* [Susi Lehtola, Conrad Steigemann, Micael J. T. Oliveira, and Miguel A. L. Marques, *Recent developments in Libxc - A comprehensive library of functionals for density functional theory*, Software X **7**, 1 (2018)](http://dx.doi.org/10.1016/j.softx.2017.11.002)
 
-Susi Lehtola, Conrad Steigemann, Micael J.T. Oliveira, and Miguel
-A.L. Marques, Recent developments in Libxc - A comprehensive library
-of functionals for density functional theory, Software X 7, 1 (2018).
-doi: 10.1016/j.softx.2017.11.002
+Any program interfacing Libxc should analogously
+* print out a message when Libxc is used in a calculation
+* print out the used version of Libxc, provided by e.g. the `xc_version_string()` function, and
+* print out the literature reference of Libxc, which is provided by the `xc_reference()` function, in addition to the literature references of the used density functionals which are also provided by Libxc
 
-The reference for older versions of libxc, before the switch to Maple
-in version 4 (released in 2017), is
+Documenting the use of Libxc for the density functional is important, since many functionals have dissimilar implementations in various programs; see
+* [Susi Lehtola and Miguel. A. L. Marques, *Reproducibility of density functional approximations: how new functionals should be reported*, J. Chem. Phys. **159**, 114116 (2023)](https://doi.org/10.1063/5.0167763)
 
-Miguel A. L. Marques, Micael J. T. Oliveira, and Tobias Burnus, Libxc:
-a library of exchange and correlation functionals for density
-functional theory, Comput. Phys. Commun. 183, 2272 (2012).
-doi: 10.1016/j.cpc.2012.05.007
+Libxc switched to automatical code generation with Maple in version 4 in 2017, while previous versions employed hand-written C implementations. The reference for early (<= 3) versions of Libxc---which is now obsolete---is
+* [Miguel A. L. Marques, Micael J. T. Oliveira, and Tobias Burnus, *Libxc: a library of exchange and correlation functionals for density functional theory*, Comput. Phys. Commun. **183**, 2272 (2012)](https://doi.org/10.1016/j.cpc.2012.05.007)
 
 ## INSTALLATION
 
@@ -152,6 +151,16 @@ vsigma [[0.00547993]
 ```
 
 ## ADDING NEW FUNCTIONALS
+
+If you are developing a new functional, we would love to implement it
+in Libxc for you even before the functional has been published, since
+many published functionals contain typos, errors and reference data,
+see [doi:10.1063/5.0167763](https://doi.org/10.1063/5.0167763); please
+contact the Libxc maintainers (Susi Lehtola and Miguel Marques) via
+GitLab or email.
+
+You can also add functionals yourself; the procedure for this is
+summarized below.
 
 ### Maple implementation
 
