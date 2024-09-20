@@ -29,6 +29,9 @@ m_abs := (x)      -> my_piecewise3(x > 0, x, -x):
 `diff/xc_erfcx` :=
   proc(y, x) (2*y*xc_erfcx(y) - 2/sqrt(Pi)) * diff(y, x) end proc:
 
+# The function exp(-1/x) is used in some functionals but it is ill-behaved for x -> 0
+m_recexp := x -> my_piecewise3(x <= -1/log(DBL_EPSILON), 0, exp(-1/m_max(-1/log(DBL_EPSILON),x))):
+
 # a series of useful definitions
 
 M_C         := 137.0359996287515: (* speed of light *)
