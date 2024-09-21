@@ -405,6 +405,13 @@ func_reference_type xc_ref_Bursch2022_134105 = {
   "Bursch2022_134105"
 };
 
+func_reference_type xc_ref_Cai2024_8611 = {
+  "Y. Cai, R. Michiels, F. De Luca, E. Neyts, X. Tu, A. Bogaerts, and N. Gerrits.,  J. Phys. Chem. C 128, 8611-8620 (2024)",
+  "10.1021/acs.jpcc.4c01110",
+  "@article{Cai2024_8611,\n  author = {Cai, Yuxiang and Michiels, Roel and De Luca, Federica and Neyts, Erik and Tu, Xin and Bogaerts, Annemie and Gerrits, Nick},\n  title = {Improving Molecule–Metal Surface Reaction Networks Using the Meta-Generalized Gradient Approximation: {CO}$\\_2$ Hydrogenation},\n  journal = {J. Phys. Chem. C},\n  volume = {128},\n  number = {21},\n  pages = {8611-8620},\n  year = {2024},\n  doi = {10.1021/acs.jpcc.4c01110},\n  url = {https://doi.org/10.1021/acs.jpcc.4c01110}\n}\n",
+  "Cai2024_8611"
+};
+
 func_reference_type xc_ref_Caldeira2019_62 = {
   "M. T. Caldeira and R. Custodio.,  J. Mol. Model. 25, 62 (2019)",
   "10.1007/s00894-019-3952-4",
@@ -2377,6 +2384,13 @@ func_reference_type xc_ref_Slater1951_385 = {
   "10.1103/PhysRev.81.385",
   "@article{Slater1951_385,\n  author = {Slater, J. C.},\n  title = {A Simplification of the {Hartree}--{Fock} Method},\n  journal = {Phys. Rev.},\n  volume = {81},\n  issue = {3},\n  pages = {385},\n  year = {1951},\n  month = {Feb},\n  publisher = {American Physical Society},\n  doi = {10.1103/PhysRev.81.385},\n  url = {http://link.aps.org/doi/10.1103/PhysRev.81.385}\n}\n",
   "Slater1951_385"
+};
+
+func_reference_type xc_ref_Smeets2019_5395 = {
+  "E. W. F. Smeets, J. Voss, and G.-J. Kroes.,  J. Phys. Chem. A 123, 5395-5406 (2019)",
+  "10.1021/acs.jpca.9b02914",
+  "@article{Smeets2019_5395,\n  author = {Smeets, Egidius W. F. and Voss, Johannes and Kroes, Geert-Jan},\n  title = {Specific Reaction Parameter Density Functional Based on the Meta-Generalized Gradient Approximation: Application to {H}$\\_2$ + {Cu}(111) and {H}$\\_2$ + {Ag}(111)},\n  journal = {J. Phys. Chem. A},\n  volume = {123},\n  number = {25},\n  pages = {5395-5406},\n  year = {2019},\n  doi = {10.1021/acs.jpca.9b02914},\n  url = {https://doi.org/10.1021/acs.jpca.9b02914}\n}\n",
+  "Smeets2019_5395"
 };
 
 func_reference_type xc_ref_Song2007_154105 = {

@@ -673,6 +673,12 @@ xc_functional_key_t xc_functional_keys[] = {
   {"mgga_x_ktbm_23", 758},
   {"mgga_x_ktbm_24", 759},
   {"mgga_x_ktbm_gap", 760},
+  {"mgga_x_mspbel", 761},
+  {"mgga_x_rmspbel", 762},
+  {"mgga_x_msrpbel", 763},
+  {"mgga_x_rmsrpbel", 764},
+  {"mgga_x_msb86bl", 765},
+  {"mgga_x_rmsb86bl", 766},
   {"lda_k_gds08_worker", 100001},
 {"", -1}
 };

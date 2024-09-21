@@ -446,6 +446,9 @@ set(raw_sources_list
   mgga_x_r4scan.c
   mgga_x_ft98.c
   mgga_x_ktbm.c
+  mgga_x_mspbel.c
+  mgga_x_msrpbel.c
+  mgga_x_msb86bl.c
   hyb_mgga_xc_br3p86.c
   mgga_x_vcml.c
   hyb_mgga_xc_r2scan.c
