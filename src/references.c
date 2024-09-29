@@ -1483,11 +1483,11 @@ func_reference_type xc_ref_Lebeda2022_023061 = {
   "Lebeda2022_023061"
 };
 
-func_reference_type xc_ref_Lebeda2024 = {
-  "T. Lebeda, T. Aschebrock, and S. Kümmel.,  Phys. Rev. Lett  (2024)",
-  "",
-  "@article{Lebeda2024,\n  author = {Lebeda, Timo and Aschebrock, Thilo and K\\\"ummel, Stephan},\n  title = {Balancing the Contributions to the Gradient Expansion: Accurate Binding and Band Gaps with a Nonempirical Meta-GGA},\n  journal = {Phys. Rev. Lett},\n  year = {2024}\n}\n",
-  "Lebeda2024"
+func_reference_type xc_ref_Lebeda2024_136402 = {
+  "T. Lebeda, T. Aschebrock, and S. Kümmel.,  Phys. Rev. Lett. 133, 136402 (2024)",
+  "10.1103/PhysRevLett.133.136402",
+  "@article{Lebeda2024_136402,\n  author = {Lebeda, Timo and Aschebrock, Thilo and K\\\"ummel, Stephan},\n  title = {Balancing the Contributions to the Gradient Expansion: Accurate Binding and Band Gaps with a Nonempirical Meta-GGA},\n  journal = {Phys. Rev. Lett.},\n  volume = {133},\n  issue = {13},\n  pages = {136402},\n  year = {2024},\n  month = {Sep},\n  publisher = {American Physical Society},\n  doi = {10.1103/PhysRevLett.133.136402},\n  url = {https://link.aps.org/doi/10.1103/PhysRevLett.133.136402}\n}\n",
+  "Lebeda2024_136402"
 };
 
 func_reference_type xc_ref_Lee1987_2377 = {
