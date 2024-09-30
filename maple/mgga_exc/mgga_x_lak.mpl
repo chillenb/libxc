@@ -13,7 +13,6 @@ lak_h0x := 1.174:
 lak_mu_ax := -(97 + 3*lak_h0x + sqrt((3*lak_h0x)^2 + 74166*lak_h0x - 64175))/1200:
 lak_nu_a := (73-50*lak_mu_ax)/5000:
 lak_mu_sx := (10+60*lak_mu_ax)/81:
-(* Timo Lebeda informed about an error in the SI: the denominator is 18225 instead of 18825 *)
 lak_nu_s := -(1606 - 50*lak_mu_ax)/18225:
 lak_bx := 4.9479:
 lak_ax := 1.1:
@@ -26,7 +25,7 @@ lak_gx := s -> 1 - m_recexp(sqrt(s)/lak_bx):
 
 (* SI eq 5. This term has poor behavior around a=0, so we have to do a series expansion *)
 lak_fx0 := a -> 2/Pi * arctan(Pi/2*(lak_c1*(a-1)/a + lak_c2*(a-1)^2)):
-lak_fx_taylor := a -> eval(convert(eval(series(lak_fx0(b),b=0),csgn=-1),polynom),b=a):
+lak_fx_taylor := a -> eval(convert(eval(series(lak_fx0(b),b=0,9),csgn=-1),polynom),b=a):
 lak_fx := a -> my_piecewise3(a <= DBL_EPSILON, lak_fx_taylor(a), lak_fx0(m_max(a,DBL_EPSILON))):
 (* SI eq 6 *)
 lak_c1 := lak_mu_ax/(lak_h0x-1):
@@ -42,6 +41,6 @@ lak_kx := s -> m_recexp((s/lak_ax)^2 * (1+s^2)):
 lak_gnum := s -> 1 - m_recexp((s/lak_anum)^2):
 
 (* Build the functional *)
-lak_alpha := (x, t) -> (t - x^2/8)/K_FACTOR_C:
+lak_alpha := (x, t) -> (t/K_FACTOR_C) * m_max(1 - x^2/(8*t), 1e-10):
 lak_f   := (x, u, t) -> lak_fsa(x*X2S, lak_alpha(x,t)):
 f := (rs, z, xt, xs0, xs1, u0, u1, t0, t1) -> mgga_exchange(lak_f, rs, z, xs0, xs1, u0, u1, t0, t1):
