@@ -232,7 +232,6 @@ set(raw_sources_list
   gga_x_ityh_optx.c
   gga_x_ityh_pbe.c
   gga_x_kt.c
-  gga_x_lag.c
   gga_x_lb.c
   gga_x_lg93.c
   gga_x_lspbe.c
