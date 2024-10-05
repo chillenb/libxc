@@ -8,7 +8,7 @@
 gga_order_4 = gga_k_exp4.mpl gga_x_hjs_b88_v2.mpl gga_k_lc94.mpl	\
   gga_x_hjs.mpl gga_k_llp.mpl gga_x_htbs.mpl gga_k_meyer.mpl		\
   gga_x_ityh.mpl gga_k_mpbe.mpl gga_x_kt.mpl gga_k_ol1.mpl		\
-  gga_x_lag.mpl gga_k_ol2.mpl gga_x_lg93.mpl gga_k_pearson.mpl		\
+  gga_k_ol2.mpl gga_x_lg93.mpl gga_k_pearson.mpl		\
   gga_x_lspbe.mpl gga_k_pw86.mpl gga_x_lsrpbe.mpl gga_k_tflw.mpl	\
   gga_x_lv_rpw86.mpl gga_k_thakkar.mpl gga_x_mpbe.mpl			\
   gga_x_2d_b86_mgc.mpl gga_x_n12.mpl gga_x_2d_b86.mpl gga_x_ol2.mpl	\
