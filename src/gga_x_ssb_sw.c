@@ -36,7 +36,7 @@ static const char  *desc[N_PAR]   = {
   "E in D s^2/(1 + E s^4)"
 };
 static const double par_ssb_sw[N_PAR] =
-  {1.0515, 0.191458, 0.254443, 0.180708, 4.036674};
+  {1.05151, 0.191458, 0.254433, 0.180708, 4.036674};
 
 #include "maple2c/gga_exc/gga_x_ssb_sw.c"
 #include "work_gga.c"
