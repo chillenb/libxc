@@ -2014,3 +2014,20 @@
  ! KTBM learned exchange - GAP
  integer(c_int), parameter, public :: XC_MGGA_X_KTBM_GAP  =    760
 
+ ! MS-PBEl, a PBE-like meta-GGA exchange
+ integer(c_int), parameter, public :: XC_MGGA_X_MSPBEL  =    761
+ 
+ ! regularized MS-PBEl
+ integer(c_int), parameter, public :: XC_MGGA_X_RMSPBEL  =    762
+
+ ! MS-RPBEl, a RPBE-like meta-GGA exchange
+ integer(c_int), parameter, public :: XC_MGGA_X_MSRPBEL  =    763
+ 
+ ! regularized MS-RPBEl
+ integer(c_int), parameter, public :: XC_MGGA_X_RMSRPBEL  =    764
+
+ ! MS-B86bl, a B86b-like meta-GGA exchange
+ integer(c_int), parameter, public :: XC_MGGA_X_MSB86BL  =    765
+ 
+ ! regularized MS-B86bl
+ integer(c_int), parameter, public :: XC_MGGA_X_RMSB86BL  =    766

@@ -670,3 +670,9 @@
 #define  XC_MGGA_X_KTBM_23                 758 /* KTBM learned exchange - 23 */
 #define  XC_MGGA_X_KTBM_24                 759 /* KTBM learned exchange - 24 */
 #define  XC_MGGA_X_KTBM_GAP                760 /* KTBM learned exchange - GAP */
+#define  XC_MGGA_X_MSPBEL  		   761 /* MS-PBEl, a PBE-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSPBEL  		   762 /* regularized MS-PBEl */
+#define  XC_MGGA_X_MSRPBEL  		   763 /* MS-RPBEl, a RPBE-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSRPBEL  		   764 /* regularized MS-RPBEl */
+#define  XC_MGGA_X_MSB86BL  		   765 /* MS-B86bl, a B86b-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSB86BL  		   766 /* regularized MS-B86bl */
