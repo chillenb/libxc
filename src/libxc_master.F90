@@ -616,18 +616,18 @@ end interface
       real(c_double), intent(out) :: nlc_b, nlc_c
     end subroutine xc_nlc_coef
 
-    integer(c_int) function xc_num_aux_funcs(p) bind(c, name="xc_num_aux_funcs")
+    integer(c_int) function xc_num_aux_funcs(p) bind(c)
       import
       type(c_ptr), value :: p
     end function xc_num_aux_funcs
 
-    subroutine xc_aux_func_ids(p, ids) bind(c, name="xc_aux_func_ids")
+    subroutine xc_aux_func_ids(p, ids) bind(c)
       import
       type(c_ptr), value :: p
       integer(c_int), intent(out) :: ids(*)
     end subroutine xc_aux_func_ids
 
-    subroutine xc_aux_func_weights(p, weights) bind(c, name="xc_aux_func_weights")
+    subroutine xc_aux_func_weights(p, weights) bind(c)
       import
       type(c_ptr), value :: p
       real(c_double), intent(out) :: weights(*)
