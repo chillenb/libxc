@@ -489,6 +489,13 @@ func_reference_type xc_ref_Carmona2022_114109 = {
   "Carmona2022_114109"
 };
 
+func_reference_type xc_ref_Carr1964_371 = {
+  "W. J. Carr and A. A. Maradudin.,  Phys. Rev. 133, A371–A374 (1964)",
+  "10.1103/PhysRev.133.A371",
+  "@article{Carr1964_371,\n  author = {Carr, W. J. and Maradudin, A. A.},\n  title = {Ground-State Energy of a High-Density Electron Gas},\n  journal = {Phys. Rev.},\n  volume = {133},\n  issue = {2A},\n  pages = {A371--A374},\n  year = {1964},\n  month = {Jan},\n  publisher = {American Physical Society},\n  doi = {10.1103/PhysRev.133.A371},\n  url = {https://link.aps.org/doi/10.1103/PhysRev.133.A371}\n}\n",
+  "Carr1964_371"
+};
+
 func_reference_type xc_ref_CasanovaPaez2019_4735 = {
   "M. Casanova-Páez, M. B. Dardis, and L. Goerigk.,  J. Chem. Theory Comput. 15, 4735-4744 (2019)",
   "10.1021/acs.jctc.9b00013",
