@@ -472,7 +472,8 @@ void  xc_func_set_fhc_enforcement(xc_func_type *p, int on)
 {
   if(on)
     p->info->flags = p->info->flags | XC_FLAGS_ENFORCE_FHC;
-  else
+  // Turn flag off if only it was on; otherwise ^ can flip it back on
+  else if(p->info->flags = p->info->flags & XC_FLAGS_ENFORCE_FHC)
     p->info->flags = p->info->flags ^ XC_FLAGS_ENFORCE_FHC;
 }
 
