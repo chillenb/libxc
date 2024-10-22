@@ -101,6 +101,7 @@
 #define  XC_GGA_X_PBE                      101 /* Perdew, Burke & Ernzerhof */
 #define  XC_GGA_X_PBE_R                    102 /* Revised PBE from Zhang & Yang */
 #define  XC_GGA_X_B86                      103 /* Becke 86 */
+#define  XC_HYB_LDA_XC_B93                 104 /* Becke's original half-and-half functional: 50% HF and 50% LDA xc */
 #define  XC_GGA_X_B86_MGC                  105 /* Becke 86 with modified gradient correction */
 #define  XC_GGA_X_B88                      106 /* Becke 88 */
 #define  XC_GGA_X_G96                      107 /* Gill 96 */
@@ -670,9 +671,9 @@
 #define  XC_MGGA_X_KTBM_23                 758 /* KTBM learned exchange - 23 */
 #define  XC_MGGA_X_KTBM_24                 759 /* KTBM learned exchange - 24 */
 #define  XC_MGGA_X_KTBM_GAP                760 /* KTBM learned exchange - GAP */
-#define  XC_MGGA_X_MSPBEL  		   761 /* MS-PBEl, a PBE-like meta-GGA exchange */
-#define  XC_MGGA_X_RMSPBEL  		   762 /* regularized MS-PBEl */
-#define  XC_MGGA_X_MSRPBEL  		   763 /* MS-RPBEl, a RPBE-like meta-GGA exchange */
-#define  XC_MGGA_X_RMSRPBEL  		   764 /* regularized MS-RPBEl */
-#define  XC_MGGA_X_MSB86BL  		   765 /* MS-B86bl, a B86b-like meta-GGA exchange */
-#define  XC_MGGA_X_RMSB86BL  		   766 /* regularized MS-B86bl */
+#define  XC_MGGA_X_MSPBEL                  761 /* MS-PBEl, a PBE-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSPBEL                 762 /* regularized MS-PBEl */
+#define  XC_MGGA_X_MSRPBEL                 763 /* MS-RPBEl, a RPBE-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSRPBEL                764 /* regularized MS-RPBEl */
+#define  XC_MGGA_X_MSB86BL                 765 /* MS-B86bl, a B86b-like meta-GGA exchange */
+#define  XC_MGGA_X_RMSB86BL                766 /* regularized MS-B86bl */

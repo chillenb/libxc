@@ -307,6 +307,9 @@
  ! Becke 86
  integer(c_int), parameter, public :: XC_GGA_X_B86  =    103
 
+ ! Beckes original half-and-half functional: 50% HF and 50% LDA xc
+ integer(c_int), parameter, public :: XC_HYB_LDA_XC_B93  =    104
+
  ! Becke 86 with modified gradient correction
  integer(c_int), parameter, public :: XC_GGA_X_B86_MGC  =    105
 
@@ -2016,18 +2019,19 @@
 
  ! MS-PBEl, a PBE-like meta-GGA exchange
  integer(c_int), parameter, public :: XC_MGGA_X_MSPBEL  =    761
- 
+
  ! regularized MS-PBEl
  integer(c_int), parameter, public :: XC_MGGA_X_RMSPBEL  =    762
 
  ! MS-RPBEl, a RPBE-like meta-GGA exchange
  integer(c_int), parameter, public :: XC_MGGA_X_MSRPBEL  =    763
- 
+
  ! regularized MS-RPBEl
  integer(c_int), parameter, public :: XC_MGGA_X_RMSRPBEL  =    764
 
  ! MS-B86bl, a B86b-like meta-GGA exchange
  integer(c_int), parameter, public :: XC_MGGA_X_MSB86BL  =    765
- 
+
  ! regularized MS-B86bl
  integer(c_int), parameter, public :: XC_MGGA_X_RMSB86BL  =    766
+
