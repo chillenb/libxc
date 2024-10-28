@@ -247,15 +247,15 @@ func_reference_type xc_ref_Bernard2012_204103 = {
 func_reference_type xc_ref_Besley2009_10350 = {
   "N. A. Besley, M. J. G. Peach, and D. J. Tozer.,  Phys. Chem. Chem. Phys. 11, 10350-10358 (2009)",
   "10.1039/B912718F",
-  "@Article{Besley2009_10350,\n  author = {Besley, Nicholas A. and Peach, Michael J. G. and Tozer, David J.},\n  title = {Time-dependent density functional theory calculations of near-edge X-ray absorption fine structure with short-range corrected functionals},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2009},\n  volume = {11},\n  issue = {44},\n  pages = {10350-10358},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/B912718F},\n  url = {https://doi.org/10.1039/B912718F}\n}\n",
+  "@article{Besley2009_10350,\n  author = {Besley, Nicholas A. and Peach, Michael J. G. and Tozer, David J.},\n  title = {Time-dependent density functional theory calculations of near-edge X-ray absorption fine structure with short-range corrected functionals},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2009},\n  volume = {11},\n  issue = {44},\n  pages = {10350-10358},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/B912718F},\n  url = {https://doi.org/10.1039/B912718F}\n}\n",
   "Besley2009_10350"
 };
 
-func_reference_type xc_ref_Bhattacharjee2024 = {
-  "S. Bhattacharjee, N. A. Koshi, and S.-C. Lee. Customizing pbe exchange-correlation functionals: a comprehensive approach for band gap prediction in diverse semiconductors. 2024. URL: https://arxiv.org/abs/2311.11702, arXiv:2311.11702.",
-  "",
-  "@misc{Bhattacharjee2024,\n  author = {Bhattacharjee, Satadeep and Koshi, Namitha Anna and Lee, Seung-Cheol},\n  title = {Customizing PBE Exchange-Correlation functionals: A comprehensive approach for band gap prediction in diverse semiconductors},\n  year = {2024},\n  eprint = {2311.11702},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.mtrl-sci},\n  url = {https://arxiv.org/abs/2311.11702}\n}\n",
-  "Bhattacharjee2024"
+func_reference_type xc_ref_Bhattacharjee2024_PCCP_26443 = {
+  "S. Bhattacharjee, N. A. Koshi, and S.-C. Lee.,  Phys. Chem. Chem. Phys. 26, 26443–26452 (2024)",
+  "10.1039/D4CP03260H",
+  "@article{Bhattacharjee2024_PCCP_26443,\n  author = {Bhattacharjee, Satadeep and Koshi, Namitha Anna and Lee, Seung-Cheol},\n  title = {Customizing {PBE} exchange-correlation functionals: a comprehensive approach for band gap prediction in diverse semiconductors},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2024},\n  volume = {26},\n  issue = {41},\n  pages = {26443--26452},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/D4CP03260H},\n  url = {http://dx.doi.org/10.1039/D4CP03260H}\n}\n",
+  "Bhattacharjee2024_PCCP_26443"
 };
 
 func_reference_type xc_ref_Bilc2008_165107 = {
@@ -793,7 +793,7 @@ func_reference_type xc_ref_Ernzerhof2000_59 = {
 func_reference_type xc_ref_EspinosaLeal2015_31463 = {
   "L. A. Espinosa Leal, A. Karpenko, M. A. Caro, and O. Lopez-Acevedo.,  Phys. Chem. Chem. Phys. 17, 31463-31471 (2015)",
   "10.1039/C5CP01211B",
-  "@Article{EspinosaLeal2015_31463,\n  author = {Espinosa Leal, L. A. and Karpenko, A. and Caro, M. A. and Lopez-Acevedo, O.},\n  title = {Optimizing a parametrized {Thomas}--{Fermi}--{Dirac}--{Weizs\\\"{a}cker} density functional for atoms},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2015},\n  volume = {17},\n  issue = {47},\n  pages = {31463-31471},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/C5CP01211B},\n  url = {https://doi.org/10.1039/C5CP01211B}\n}\n",
+  "@article{EspinosaLeal2015_31463,\n  author = {Espinosa Leal, L. A. and Karpenko, A. and Caro, M. A. and Lopez-Acevedo, O.},\n  title = {Optimizing a parametrized {Thomas}--{Fermi}--{Dirac}--{Weizs\\\"{a}cker} density functional for atoms},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2015},\n  volume = {17},\n  issue = {47},\n  pages = {31463-31471},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/C5CP01211B},\n  url = {https://doi.org/10.1039/C5CP01211B}\n}\n",
   "EspinosaLeal2015_31463"
 };
 
@@ -1598,7 +1598,7 @@ func_reference_type xc_ref_Liu2000_29 = {
 func_reference_type xc_ref_Liu2022_48 = {
   "Y. Liu, C. Zhang, Z. Liu, D. G. Truhlar, Y. Wang, and X. He.,  Nature Computational Science 3, 48–58 (2022)",
   "10.1038/s43588-022-00371-5",
-  "@Article{Liu2022_48,\n  author = {Liu, Yiwei and Zhang, Cheng and Liu, Zhonghua and Truhlar, Donald G. and Wang, Ying and He, Xiao},\n  journal = {Nature Computational Science},\n  title = {Supervised learning of a chemistry functional with damped dispersion},\n  year = {2022},\n  issn = {2662-8457},\n  month = {December},\n  number = {1},\n  pages = {48--58},\n  volume = {3},\n  doi = {10.1038/s43588-022-00371-5},\n  publisher = {Springer Science and Business Media LLC}\n}\n",
+  "@article{Liu2022_48,\n  author = {Liu, Yiwei and Zhang, Cheng and Liu, Zhonghua and Truhlar, Donald G. and Wang, Ying and He, Xiao},\n  journal = {Nature Computational Science},\n  title = {Supervised learning of a chemistry functional with damped dispersion},\n  year = {2022},\n  issn = {2662-8457},\n  month = {December},\n  number = {1},\n  pages = {48--58},\n  volume = {3},\n  doi = {10.1038/s43588-022-00371-5},\n  publisher = {Springer Science and Business Media LLC}\n}\n",
   "Liu2022_48"
 };
 
@@ -1920,7 +1920,7 @@ func_reference_type xc_ref_Patra2019_155140 = {
 func_reference_type xc_ref_Patra2019_19639 = {
   "A. Patra, S. Jana, H. Myneni, and P. Samal.,  Phys. Chem. Chem. Phys. 21, 19639-19650 (2019)",
   "10.1039/C9CP03356D",
-  "@Article{Patra2019_19639,\n  author = {Patra, Abhilash and Jana, Subrata and Myneni, Hemanadhan and Samal, Prasanjit},\n  title = {{Laplacian} free and asymptotic corrected semilocal exchange potential applied to the band gap of solids},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2019},\n  volume = {21},\n  issue = {35},\n  pages = {19639-19650},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/C9CP03356D},\n  url = {https://doi.org/10.1039/C9CP03356D}\n}\n",
+  "@article{Patra2019_19639,\n  author = {Patra, Abhilash and Jana, Subrata and Myneni, Hemanadhan and Samal, Prasanjit},\n  title = {{Laplacian} free and asymptotic corrected semilocal exchange potential applied to the band gap of solids},\n  journal = {Phys. Chem. Chem. Phys.},\n  year = {2019},\n  volume = {21},\n  issue = {35},\n  pages = {19639-19650},\n  publisher = {The Royal Society of Chemistry},\n  doi = {10.1039/C9CP03356D},\n  url = {https://doi.org/10.1039/C9CP03356D}\n}\n",
   "Patra2019_19639"
 };
 
