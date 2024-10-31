@@ -1831,6 +1831,9 @@
  ! r2SCAN50: r2SCAN hybrid like PBE50 with 50% exact exchange
  integer(c_int), parameter, public :: XC_HYB_MGGA_XC_R2SCAN50  =    661
 
+ ! Range-separated re-regularized SCAN exchange by Wittmann et al
+ integer(c_int), parameter, public :: XC_HYB_MGGA_X_WR2SCAN  =    662
+
  ! CAM hybrid screened exchange PBE version
  integer(c_int), parameter, public :: XC_HYB_GGA_XC_CAM_PBEH  =    681
 

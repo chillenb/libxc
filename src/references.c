@@ -2904,6 +2904,13 @@ func_reference_type xc_ref_Wilson2001_9233 = {
   "Wilson2001_9233"
 };
 
+func_reference_type xc_ref_Wittmann2023_224103 = {
+  "L. Wittmann, H. Neugebauer, S. Grimme, and M. Bursch.,  J. Chem. Phys. 159, 224103 (2023)",
+  "10.1063/5.0174988",
+  "@article{Wittmann2023_224103,\n  author = {Wittmann, Lukas and Neugebauer, Hagen and Grimme, Stefan and Bursch, Markus},\n  title = {{Dispersion-corrected r$^2${SCAN} based double-hybrid functionals}},\n  journal = {J. Chem. Phys.},\n  volume = {159},\n  number = {22},\n  pages = {224103},\n  year = {2023},\n  month = {12},\n  issn = {0021-9606},\n  doi = {10.1063/5.0174988},\n  url = {https://doi.org/10.1063/5.0174988}\n}\n",
+  "Wittmann2023_224103"
+};
+
 func_reference_type xc_ref_Wu2006_235116 = {
   "Z. Wu and R. E. Cohen.,  Phys. Rev. B 73, 235116 (2006)",
   "10.1103/PhysRevB.73.235116",
