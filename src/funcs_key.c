@@ -612,6 +612,7 @@ xc_functional_key_t xc_functional_keys[] = {
   {"hyb_mgga_xc_r2scanh", 659},
   {"hyb_mgga_xc_r2scan0", 660},
   {"hyb_mgga_xc_r2scan50", 661},
+  {"hyb_mgga_x_wr2scan", 662},
   {"hyb_gga_xc_cam_pbeh", 681},
   {"hyb_gga_xc_camy_pbeh", 682},
   {"lda_c_upw92", 683},

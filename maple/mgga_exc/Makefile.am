@@ -31,7 +31,7 @@ mgga_order_4 = mgga_x_lta.mpl mgga_c_ltapw.mpl mgga_x_th.mpl		\
   mgga_x_r4scan.mpl mgga_x_ft98.mpl mgga_x_vcml.mpl mgga_c_cc.mpl	\
   mgga_c_ccalda.mpl hyb_mgga_xc_gas22.mpl mgga_x_ktbm.mpl		\
   mgga_x_eel.mpl mgga_x_mspbel.mpl mgga_x_msrpbel.mpl 			\
-  mgga_x_msb86bl.mpl
+  mgga_x_msb86bl.mpl hyb_mgga_x_wr2scan.mpl
 
 mgga_order_3 = mgga_c_b94.mpl
 

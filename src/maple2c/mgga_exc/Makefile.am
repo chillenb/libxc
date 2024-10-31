@@ -25,4 +25,4 @@ mgga_k_gea4.c         mgga_k_csk.c            mgga_k_csk_loc.c mgga_k_pgslb.c   
 mgga_x_regtm.c        mgga_c_rregtm.c         mgga_x_mcml.c    mgga_c_rmggac.c    mgga_x_rppscan.c  \
 mgga_c_rppscan.c      mgga_x_r4scan.c         mgga_x_ft98.c    mgga_x_vcml.c      mgga_c_cc.c       \
 mgga_c_ccalda.c       hyb_mgga_xc_gas22.c     mgga_x_ktbm.c    mgga_x_lak.c       mgga_x_mspbel.c   \
-mgga_x_msrpbel.c      mgga_x_msb86bl.c
+mgga_x_msrpbel.c      mgga_x_msb86bl.c        hyb_mgga_x_wr2scan.c
