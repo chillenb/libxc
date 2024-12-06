@@ -6,17 +6,11 @@
 
 import os
 import sys
+import pylibxc
+from pylibxc.test_densities import test_data
 from subprocess import run, DEVNULL
 from multiprocessing import Pool
 from dataclasses import dataclass, field
-
-
-# Reference density systems
-systems = ["H", "Li", "BrOH", "BrOH+"]
-
-# Maximum differentiation order to test
-MAX_ORDER = 2  # set to 3 to get FXC
-
 
 @dataclass
 class Context:
@@ -26,7 +20,6 @@ class Context:
     funcs: list[str] = field(default_factory=list)
     xc_reg: str = ""
 
-
 if sys.stdout.isatty():
     NC = "\033[0m"
     RED = "\033[1;31m"
@@ -34,17 +27,9 @@ if sys.stdout.isatty():
     YELLOW = "\033[1;33m"
 else:
     NC = RED = GREEN = YELLOW = ""
-
-
+    
 def main(ctx: Context, nproc=os.cpu_count()):
     "Main driver. Run reference generation in parallel."
-
-    if not ctx.xc_reg:
-        ctx.xc_reg = os.path.join(ctx.builddir, "xc-regression")
-
-    if not os.path.exists(ctx.xc_reg):
-        print("xc-regression not found")
-        return 1
 
     if ctx.funcs:
         ctx.funcs = ctx.funcs
@@ -58,7 +43,6 @@ def main(ctx: Context, nproc=os.cpu_count()):
             ]
 
     failed = []
-
     with Pool(processes=nproc) as p:
         for i, (r, rcode) in enumerate(p.imap(gen_one_ref, enum_refs(ctx), chunksize=50)):
             if rcode != 0:
@@ -93,50 +77,70 @@ def enum_refs(ctx: Context):
             fn_kind, component, *rest = func.split("_")
             dir = f"{fn_kind}_{component}"
 
-        for system in systems:
+        for system in test_data:
             for pol, nspin in (("pol", 2), ("unpol", 1)):
-                for order in range(MAX_ORDER):
-                    refname = f"{func}.{system}.{pol}.{order}"
-
-                    yield (
-                        ctx,
-                        func,
-                        nspin,
-                        order,
-                        system,
-                        dir,
-                        refname,
-                    )
+                refname = f"{func}.{system}.{pol}.py"
+                yield (
+                    ctx,
+                    func,
+                    nspin,
+                    system,
+                    dir,
+                    refname,
+                )
 
 
 def gen_one_ref(args):
     "Create a single reference file."
-    ctx, func, nspin, order, system, dir, refname = args
+    ctx, func, nspin, system, dir, refname = args
+
+    # Get the functional
+    feval = pylibxc.LibXCFunctional(func, nspin)
+
+    # We only test first and second derivatives
+    do_l = False
+    do_k = False
+    do_f = False
+    do_v = feval._have_vxc
+    do_e = feval._have_exc
+
+    # Run a test calculation to figure out what is in the output
+    inp = test_data['H']
+    # Evaluate the data
+    out = feval.compute(inp, do_exc=do_e, do_vxc=do_v, do_fxc=do_f, do_kxc=do_k, do_lxc=do_l)
+        
+    test_targets = []
+    # Check if functional has energy
+    if "exc" in out:
+        test_targets.append('exc')
+    # Add all first derivatives
+    for target in out:
+        if target.startswith('v'):
+            test_targets.append(target)
 
     os.makedirs(os.path.join(ctx.destdir, dir), exist_ok=True)
     dest = os.path.join(ctx.destdir, dir, refname)
 
-    # Real work is delegated to a C program.
-    p = run(
-        [
-            ctx.xc_reg,
-            func,
-            str(nspin),
-            str(order),
-            os.path.join(ctx.srcdir, "input", system),
-            dest,
-        ],
-        stdout=DEVNULL,
-    )
+    # Write the test input
+    out = open(dest, 'w')
+    out.write(f'''
+import pytest
+import numpy
+from pylibxc.test_densities import test_data
+''')
 
-    if p.returncode != 0:
-        print("failed to generate", refname)
-        return (refname, p.returncode)
+    # Write the tests
+    for target in test_targets:
+        out.write(f'''
 
-    # If the generation succeed we replace the old archive.
-    if os.path.exists(dest + ".bz2"):
-        os.remove(dest + ".bz2")
-    run(["bzip2", dest], stdout=DEVNULL)
+@pytest.mark.array_compare
+def test_{func}_{system}_{nspin}s_{target}():
+    # Prepare the input
+    inp = test_data[system]
+    # Evaluate the data
+    out = feval.compute(inp, do_exc={do_e}, do_vxc={do_v}, do_fxc={do_f}, do_kxc={do_k}, do_lxc={do_l})
+    return out["{target}"]
+''')
 
     return (refname, 0)
 
@@ -149,13 +153,13 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--srcdir", "-s", default=None, help="Specifiy the source directory (default: ./)"
+        "--srcdir", "-s", default=None, help="Specify the source directory (default: ./)"
     )
     parser.add_argument(
-        "--builddir", "-b", default=None, help="Specifiy the build directory (default: ./)"
+        "--builddir", "-b", default=None, help="Specify the build directory (default: ./)"
     )
     parser.add_argument(
-        "--destdir", "-d", default=None, help="Specifiy a destination directory (default: <srcdir>/regression)"
+        "--destdir", "-d", default=None, help="Specify a destination directory (default: <srcdir>/regression)"
     )
 
     parser.add_argument(
