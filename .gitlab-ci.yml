@@ -35,7 +35,6 @@ g++:
       - make check
       - make install
 
-
 clang++:
     stage: build
     script:
@@ -50,6 +49,48 @@ clang++:
       - make
       - make check
       - make install
+
+gcc_cmake_python:
+    stage: build
+    script:
+      - time apt update -qq
+      - time apt install --no-install-recommends -y -qq autoconf automake make gcc g++ gfortran libtool bzip2 python3 python3-pybtex python3-pytest cmake
+      - mkdir build/
+      - cd build/
+      - export CFLAGS="-O3 -pipe -Wall"
+      - export CC=gcc
+      - cmake -DENABLE_PYTHON=ON ../
+      - make
+      - make install
+      - pytest
+
+g++_cmake_python:
+    stage: build
+    script:
+      - time apt update -qq
+      - time apt install --no-install-recommends -y -qq autoconf automake make gcc g++ gfortran libtool bzip2 python3 python3-pybtex python3-pytest cmake
+      - mkdir build/
+      - cd build/
+      - export CFLAGS="-O3 -pipe -Wall"
+      - export CC=g++
+      - cmake -DENABLE_PYTHON=ON ../
+      - make
+      - make install
+      - pytest
+
+clang_cmake_python:
+    stage: build
+    script:
+      - time apt update -qq
+      - time apt install --no-install-recommends -y -qq autoconf automake make gcc g++ gfortran libtool bzip2 python3 python3-pybtex python3-pytest cmake clang
+      - mkdir build/
+      - cd build/
+      - export CFLAGS="-O3 -pipe -Wall"
+      - export CC=clang
+      - cmake -DENABLE_PYTHON=ON ../
+      - make
+      - make install
+      - pytest
 
 nvcc_nocuda:
     image: nvidia/cuda:12.2.0-devel-ubuntu20.04
