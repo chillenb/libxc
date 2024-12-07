@@ -16,46 +16,53 @@ def test_input(data, nspin):
     '''Prepares pylibxc compatible input from the density data'''
     inp = {}
 
-    rhoa = data[:,0]
-    rhob = data[:,1]
-    sigmaaa = data[:,2]
-    sigmaab = data[:,3]
-    sigmabb = data[:,4]
-    lapla = data[:,5]
-    laplb = data[:,6]
-    taua = data[:,7]
-    taub = data[:,8]
+    rhoa = (data[:,0])
+    rhob = (data[:,1])
+    sigmaaa = (data[:,2])
+    sigmaab = (data[:,3])
+    sigmabb = (data[:,4])
+    lapla = (data[:,5])
+    laplb = (data[:,6])
+    taua = (data[:,7])
+    taub = (data[:,8])
 
     if nspin == 1:
-        inp["rho"] = rhoa+rhob
-        inp["sigma"] = sigmaaa + sigmabb + 2*sigmaab
-        inp["lapl"] = lapla+laplb
-        inp["tau"] = taua+taub
+        inp["rho"] = (rhoa+rhob).flatten()
+        inp["sigma"] = (sigmaaa + sigmabb + 2*sigmaab).flatten()
+        inp["lapl"] = (lapla+laplb).flatten()
+        inp["tau"] = (taua+taub).flatten()
     else:
         inp["rho"] = numpy.zeros((data.shape[0],2))
         inp["rho"][:,0] = rhoa
         inp["rho"][:,1] = rhob
         # We want the spin-up and spin-down data next to each other
-        inp["rho"] = inp["rho"].T
+        inp["rho"] = (inp["rho"].T).flatten()
         
         inp["sigma"] = numpy.zeros((data.shape[0],3))
         inp["sigma"][:,0] = sigmaaa
         inp["sigma"][:,1] = sigmaab
         inp["sigma"][:,2] = sigmabb
-        inp["sigma"] = inp["sigma"].T
+        inp["sigma"] = (inp["sigma"].T).flatten()
         
         inp["lapl"] = numpy.zeros((data.shape[0],2))
         inp["lapl"][:,0] = lapla
         inp["lapl"][:,1] = laplb
-        inp["lapl"] = inp["lapl"].T
+        inp["lapl"] = (inp["lapl"].T).flatten()
 
         inp["tau"] = numpy.zeros((data.shape[0],2))
         inp["tau"][:,0] = taua
         inp["tau"][:,1] = taub
-        inp["tau"] = inp["tau"].T
+        inp["tau"] = (inp["tau"].T).flatten()
 
     return inp
 
 # List of test data and number of spin channels
-test_data = {'BrOH' : test_input(BrOH_data, 1), 'BrOH+' : test_input(BrOHc_data, 2), 'H' : test_input(H_data, 2), 'Li' : test_input(Li_data, 2)}
+test_data = {}
+test_data['BrOH'] = test_input(BrOH_data, 1)
+test_data['BrOH+'] = test_input(BrOHc_data, 2)
+test_data['BrOH+_restr'] = test_input(BrOHc_data, 1)
+test_data['H'] = test_input(H_data, 2)
+test_data['H_restr'] = test_input(H_data, 1)
+test_data['Li'] = test_input(Li_data, 2)
+test_data['Li_restr'] = test_input(Li_data, 1)
 
