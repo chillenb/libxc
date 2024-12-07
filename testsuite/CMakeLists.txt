@@ -1,11 +1,9 @@
 link_libraries(xc)
 add_executable(xc-consistency xc-consistency.c)
-add_executable(xc-error xc-error.c)
 add_executable(xc-get_data xc-get_data.c)
-add_executable(xc-regression xc-regression.c)
 
 if(ENABLE_CUDA)
-  set_source_files_properties(xc-consistency.c xc-error.c xc-get_data.c xc-regression.c PROPERTIES LANGUAGE CUDA)
+  set_source_files_properties(xc-consistency.c xc-get_data.c PROPERTIES LANGUAGE CUDA)
 endif()
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/workdir)
@@ -39,20 +37,6 @@ foreach(_sdir ${_sdirs})
         # extract reference values
         execute_process(COMMAND bunzip2 -c "${CMAKE_CURRENT_SOURCE_DIR}/regression/${_sdir}/${refname}.bz2"
                     	OUTPUT_FILE "${CMAKE_CURRENT_BINARY_DIR}/workdir/${_sdir}/${refname}_ref")
-
-        # this is properly the real test, but presumably it'll get rebuilt if libxc changes
-
-        # generate test values
-        set(test "${PN}-${func}-${system}-${spin}-${order}")
-        add_test(NAME ${test}-run
-                 COMMAND xc-regression ${func} ${nspin} ${order} ${CMAKE_CURRENT_SOURCE_DIR}/input/${system} ${CMAKE_CURRENT_BINARY_DIR}/workdir/${_sdir}/${refname})
-        set_tests_properties(${test}-run PROPERTIES TIMEOUT 3)
-
-        # checke the tests values against the reference values
-        add_test(NAME ${test}-check
-                 COMMAND xc-error ${CMAKE_CURRENT_BINARY_DIR}/workdir/${_sdir}/${refname} ${CMAKE_CURRENT_BINARY_DIR}/workdir/${_sdir}/${refname}_ref ${tol})
-        set_tests_properties(${test}-check PROPERTIES DEPENDS ${test}-run)
-
     endforeach()
 endforeach()
 

@@ -9,7 +9,7 @@
 
 SUBDIRS = pytest
 
-noinst_PROGRAMS = xc-get_data xc-consistency xc-regression xc-error
+noinst_PROGRAMS = xc-get_data xc-consistency
 dist_noinst_SCRIPTS = xc-run_testsuite.py
 TESTS = xc-run_testsuite.py
 TESTS_ENVIRONMENT = buildir=$(top_builddir)/testsuite
@@ -21,14 +21,6 @@ xc_get_data_CPPFLAGS = -I$(srcdir)/../src/ -I$(top_builddir)/src
 xc_consistency_SOURCES = xc-consistency.c
 xc_consistency_LDADD = -L../src/ -lxc -lm
 xc_consistency_CPPFLAGS = -I$(srcdir)/../src/ -I$(top_builddir)/src
-
-xc_regression_SOURCES = xc-regression.c
-xc_regression_LDADD = -L../src/ -lxc -lm
-xc_regression_CPPFLAGS = -I$(srcdir)/../src/ -I$(top_builddir)/src
-
-xc_error_SOURCES = xc-error.c
-xc_error_LDADD = -lm
-xc_error_CPPFLAGS = -I$(srcdir)/../src/ -I$(top_builddir)/src
 
 dist_noinst_DATA = CMakeLists.txt $(srcdir)/df_repo/*.data $(srcdir)/regression/*/*.bz2 $(srcdir)/input/*
 
