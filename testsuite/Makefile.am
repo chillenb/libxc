@@ -10,9 +10,7 @@
 SUBDIRS = pytest
 
 noinst_PROGRAMS = xc-get_data xc-consistency
-dist_noinst_SCRIPTS = xc-run_testsuite.py
-TESTS = xc-run_testsuite.py
-TESTS_ENVIRONMENT = buildir=$(top_builddir)/testsuite
+dist_noinst_SCRIPTS = xc-generate_tests.py
 
 xc_get_data_SOURCES = xc-get_data.c
 xc_get_data_LDADD = -L../src/ -lxc -lm
