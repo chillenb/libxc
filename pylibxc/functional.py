@@ -254,17 +254,19 @@ class LibXCFunctional:
         self._needs_tau = self._flags & flags.XC_FLAGS_NEEDS_TAU
 
         # Set derivatives
-        self._have_exc = self._flags & flags.XC_FLAGS_HAVE_EXC
-        self._have_vxc = self._flags & flags.XC_FLAGS_HAVE_VXC
-        self._have_fxc = self._flags & flags.XC_FLAGS_HAVE_FXC
-        self._have_kxc = self._flags & flags.XC_FLAGS_HAVE_KXC
-        self._have_lxc = self._flags & flags.XC_FLAGS_HAVE_LXC
+        self._have_exc = (self._flags & flags.XC_FLAGS_HAVE_EXC) != 0
+        self._have_vxc = (self._flags & flags.XC_FLAGS_HAVE_VXC) != 0
+        self._have_fxc = (self._flags & flags.XC_FLAGS_HAVE_FXC) != 0
+        self._have_kxc = (self._flags & flags.XC_FLAGS_HAVE_KXC) != 0
+        self._have_lxc = (self._flags & flags.XC_FLAGS_HAVE_LXC) != 0
 
         # Set omega
         self._have_cam = self._flags & flags.XC_FLAGS_HYB_CAM
         self._have_cam |= self._flags & flags.XC_FLAGS_HYB_CAMY
         self._have_cam |= self._flags & flags.XC_FLAGS_HYB_LC
         self._have_cam |= self._flags & flags.XC_FLAGS_HYB_LCY
+        self._have_cam = self._have_cam != 0
+
         self._cam_omega = self._cam_alpha = self._cam_beta = False
         if self._have_cam:
             self._cam_omega = self.xc_func.contents.cam_omega
