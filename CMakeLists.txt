@@ -616,6 +616,7 @@ if(ENABLE_PYTHON)
     pylibxc/structs.py
     pylibxc/util.py
     pylibxc/version.py
+    pylibxc/test_densities.py
   )
   install(
     FILES ${SOURCE_PYTHON_API}
