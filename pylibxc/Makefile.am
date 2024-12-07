@@ -5,4 +5,4 @@
 ## file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ##
 
-EXTRA_DIST = core.py flags.py functional.py __init__.py structs.py util.py version.py test_densities.py
+EXTRA_DIST = core.py flags.py functional.py __init__.py structs.py util.py version.py example_densities.py
