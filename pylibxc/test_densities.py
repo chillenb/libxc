@@ -59,8 +59,8 @@ def test_input(data, nspin):
 # List of test data and number of spin channels
 test_data = {}
 test_data['BrOH'] = test_input(BrOH_data, 1)
-test_data['BrOH+'] = test_input(BrOHc_data, 2)
-test_data['BrOH+_restr'] = test_input(BrOHc_data, 1)
+test_data['BrOH_cation'] = test_input(BrOHc_data, 2)
+test_data['BrOH_cation_restr'] = test_input(BrOHc_data, 1)
 test_data['H'] = test_input(H_data, 2)
 test_data['H_restr'] = test_input(H_data, 1)
 test_data['Li'] = test_input(Li_data, 2)
