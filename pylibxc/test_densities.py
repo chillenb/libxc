@@ -36,23 +36,23 @@ def test_input(data, nspin):
         inp["rho"][:,0] = rhoa
         inp["rho"][:,1] = rhob
         # We want the spin-up and spin-down data next to each other
-        inp["rho"] = (inp["rho"].T).flatten()
+        inp["rho"] = numpy.ascontiguousarray(numpy.transpose(inp["rho"]))
         
         inp["sigma"] = numpy.zeros((data.shape[0],3))
         inp["sigma"][:,0] = sigmaaa
         inp["sigma"][:,1] = sigmaab
         inp["sigma"][:,2] = sigmabb
-        inp["sigma"] = (inp["sigma"].T).flatten()
+        inp["sigma"] = numpy.ascontiguousarray(numpy.transpose(inp["sigma"]))
         
         inp["lapl"] = numpy.zeros((data.shape[0],2))
         inp["lapl"][:,0] = lapla
         inp["lapl"][:,1] = laplb
-        inp["lapl"] = (inp["lapl"].T).flatten()
+        inp["lapl"] = numpy.ascontiguousarray(numpy.transpose(inp["lapl"]))
 
         inp["tau"] = numpy.zeros((data.shape[0],2))
         inp["tau"][:,0] = taua
         inp["tau"][:,1] = taub
-        inp["tau"] = (inp["tau"].T).flatten()
+        inp["tau"] = numpy.ascontiguousarray(numpy.transpose(inp["tau"]))
 
     return inp
 
