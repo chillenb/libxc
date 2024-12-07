@@ -13,7 +13,7 @@ from subprocess import run, DEVNULL
 from multiprocessing import Pool
 from dataclasses import dataclass, field
 
-thresholds = {'exc' : 5e-8, 'vrho' : 5e-5, 'vsigma' : 5e-5, 'vtau' : 5e-5, 'vlapl' : 5e-5}
+thresholds = {'zk' : 5e-8, 'vrho' : 5e-5, 'vsigma' : 5e-5, 'vtau' : 5e-5, 'vlapl' : 5e-5}
 
 @dataclass
 class Context:
@@ -114,8 +114,8 @@ def gen_one_ref(args):
 
     test_targets = []
     # Check if functional has energy
-    if "exc" in out:
-        test_targets.append('exc')
+    if "zk" in out:
+        test_targets.append('zk')
     # Add all first derivatives
     for target in out:
         if target.startswith('v'):
