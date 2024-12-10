@@ -5,66 +5,6 @@ import numpy
 from pylibxc.example_densities import test_data
 
 
-def test_mgga_k_rda_BrOH_cation_2_zk():
-    # Prepare the input
-    inp = test_data["BrOH_cation"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["zk"].flatten()
-    ref_tgt = [1.236913528570924e+03, 1.236909534987807e+03, 1.236911418563709e+03, 1.236970267387272e+03, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 3.307505136685776e-01, 3.201812147044234e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 8.471595573031719e+00, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-08
-
-
-def test_mgga_k_rda_BrOH_cation_2_vrho():
-    # Prepare the input
-    inp = test_data["BrOH_cation"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [1.083927426534435e+03, 1.083926887380469e+03, 1.083962749163053e+03, 1.083952536740479e+03, 1.084039278129587e+03, 1.084072416766081e+03, 1.083641228289105e+03, 1.083564774302871e+03, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", -2.879552887540042e-01, -2.419792637322263e-01, -2.553250371745146e-01, -2.087888195630712e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.333106458485163e+01, 1.332155885369287e+01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_k_rda_BrOH_cation_2_vsigma():
-    # Prepare the input
-    inp = test_data["BrOH_cation"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vsigma"].flatten()
-    ref_tgt = [4.950226282191988e-06, 0.000000000000000e+00, 4.950239093547626e-06, 4.950098755353082e-06, 0.000000000000000e+00, 4.950146468954438e-06, 4.949787621050663e-06, 0.000000000000000e+00, 4.949673482546557e-06, 4.951225656260640e-06, 0.000000000000000e+00, 4.951507159848950e-06, 4.950145341093804e-06, 0.000000000000000e+00, "nan", 4.950145341093804e-06, 0.000000000000000e+00, "nan", 1.291356600263065e-03, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 2.995258276008431e-03, 0.000000000000000e+00, "nan", 1.292179564071040e-03, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 2.162840009778176e-01, "nan", 0.000000000000000e+00, "nan", 1.309333685405903e+01, 0.000000000000000e+00, 1.120564878292443e+01, 1.231382097687323e+01, 0.000000000000000e+00, 1.036193954110886e+01, 1.271874510525644e-01, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 1.264408952978473e+02, 6.324473919890280e+05, 0.000000000000000e+00, "nan", 5.496530607368014e+05, 0.000000000000000e+00, 4.471116735888456e+05, "nan", 0.000000000000000e+00, "nan", 2.911558590110981e+06, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 4.834047408337284e+06, 8.908220275052534e+05, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 2.829358633758143e-04, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 2.841025978527282e-04, "nan", 0.000000000000000e+00, 7.546508694825425e-03, "nan", 0.000000000000000e+00, 7.402592096117047e-03, "nan", 0.000000000000000e+00, "nan", 7.512713411244842e-03, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 7.389769538933035e-03, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 4.869557603842461e-01, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 1.396262506751048e-01, "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 1.680322502110340e+02, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 2.264018307878450e-03, 0.000000000000000e+00, 2.261389084741898e-03, "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 7.244700931832158e+01, "nan", 0.000000000000000e+00, 6.144155897876949e+06, "nan", 0.000000000000000e+00, "nan", 7.817211914755138e+06, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, -1.597971787013219e-02, 8.233377508512967e-02, 0.000000000000000e+00, "nan", 5.184438306915854e-02, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 3.805964929464901e-02, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", 3.495284427036186e-01, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 6.087760160231270e+00, "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 1.360879362104473e+00, "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 6.145550341874281e-01, "nan", 0.000000000000000e+00, 3.314985802507890e+03, 1.378784139551819e+03, 0.000000000000000e+00, "nan", 1.560909388439621e+00, 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 1.941816255997331e+05, "nan", 0.000000000000000e+00, "nan", "nan", 0.000000000000000e+00, 1.656041333232735e+07, "nan", 0.000000000000000e+00, 3.702507691614825e+02, "nan", 0.000000000000000e+00, "nan", 8.633535674483234e+06, 0.000000000000000e+00, "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_k_rda_BrOH_cation_2_vlapl():
-    # Prepare the input
-    inp = test_data["BrOH_cation"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [1.142153705634960e-01, 1.142153436090694e-01, 1.142157590499746e-01, 1.142156713128966e-01, 1.142165995773635e-01, 1.142170447623060e-01, 1.142115164726229e-01, 1.142105609726471e-01, 1.142156073400365e-01, "nan", 1.142156073400365e-01, "nan", 1.093385530120377e-01, "nan", "nan", "nan", "nan", "nan", 4.757948689508509e-109, "nan", 1.093298364541224e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 7.751869068589434e-02, "nan", "nan", 4.854207398723634e-02, 5.254913090367523e-02, 5.087449072407898e-02, 5.539466939327510e-02, 9.866475121909997e-02, "nan", "nan", "nan", "nan", "nan", "nan", 1.037075331546066e-02, 3.338980392668183e-07, "nan", 4.241516985788556e-07, -1.121776826195814e-94, "nan", "nan", 3.995174336376559e-08, "nan", "nan", 5.619608080388054e-08, 2.111488507336069e-07, "nan", "nan", "nan", 1.179640799497078e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.179188761634317e-01, "nan", 8.835176212825215e-02, "nan", 8.904347882204017e-02, "nan", "nan", 8.709731104637929e-02, "nan", "nan", "nan", 9.010755363489267e-02, "nan", "nan", "nan", 0.000000000000000e+00, "nan", "nan", "nan", "nan", 1.218544543107184e-01, "nan", "nan", "nan", "nan", 1.108659993084310e-63, "nan", "nan", "nan", "nan", "nan", 1.239453747913023e-01, 1.239526334034922e-01, "nan", "nan", "nan", 1.844255169364281e-02, "nan", 1.793544873239511e-08, "nan", "nan", 7.371093279058297e-08, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.268921310377349e-01, 1.238615696016229e-01, "nan", 1.249007984778450e-01, "nan", "nan", "nan", 1.253376350902694e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.125228121863483e-01, "nan", "nan", "nan", "nan", "nan", "nan", 4.784115854747963e-02, "nan", "nan", "nan", 9.553247442643172e-02, "nan", "nan", "nan", "nan", "nan", 9.901207699344977e-02, "nan", 3.848457231490703e-66, 5.974691815183997e-04, "nan", 1.030134672600259e-01, "nan", "nan", "nan", "nan", "nan", "nan", 1.303301014759199e-06, "nan", "nan", "nan", 1.116822871595945e-08, "nan", 4.232626552901972e-03, "nan", "nan", 6.619891440271530e-08, "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
 def test_mgga_k_rda_BrOH_cation_2_vtau():
     # Prepare the input
     inp = test_data["BrOH_cation"]

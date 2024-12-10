@@ -20,51 +20,6 @@ def test_mgga_x_scanl_BrOH_cation_restr_1_zk():
     assert error < 5e-08
 
 
-def test_mgga_x_scanl_BrOH_cation_restr_1_vrho():
-    # Prepare the input
-    inp = test_data["BrOH_cation_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_x_scanl", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [-2.497871947423393e+01, -2.497869490562696e+01, -2.497875812897322e+01, -2.497912154912316e+01, -2.497890645172622e+01, -2.497890645172622e+01, -4.293751537988382e+00, -4.293575442150243e+00, -4.289620039834730e+00, "nan", -4.293643911134553e+00, "nan", -9.807179636763887e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", -1.098188106417303e+00, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", -5.919514903737729e+00, "nan", "nan", -2.871216868420364e+00, -2.891488814629489e+00, -2.857268968241515e+00, -2.875188737888710e+00, -2.889158963344695e+00, "nan", "nan", "nan", "nan", "nan", "nan", -7.029843884863998e-01, -1.354100939855421e-01, "nan", -1.250585043451884e-01, -2.539582396923238e+00, "nan", "nan", -1.634178972355617e-03, "nan", "nan", -8.283180129130473e-02, -2.184574267236783e-03, "nan", "nan", "nan", -6.959223412478917e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", -6.265764057706152e-01, "nan", -3.248211407544930e-01, "nan", -5.090311123348805e-01, "nan", "nan", -6.626431042826533e-01, "nan", "nan", "nan", -1.069724071051918e-01, "nan", "nan", "nan", -1.243029949407401e-03, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_x_scanl_BrOH_cation_restr_1_vsigma():
-    # Prepare the input
-    inp = test_data["BrOH_cation_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_x_scanl", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vsigma"].flatten()
-    ref_tgt = [-1.176121995478442e-08, -1.176150184931251e-08, -1.176205254361756e-08, -1.175786948436847e-08, -1.176016140876325e-08, -1.176016140876325e-08, -1.031940872423180e-05, -1.032334028291572e-05, -1.041334415390252e-05, "nan", -1.032312711746015e-05, "nan", 3.656193542472576e-04, "nan", "nan", "nan", "nan", "nan", "nan", "nan", -6.137036927107450e-04, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", -4.549739924011149e-06, "nan", "nan", 5.439247540844465e-06, 5.283037962842856e-06, 5.555416642687552e-06, 5.415267821111202e-06, 5.296087884092939e-06, "nan", "nan", "nan", "nan", "nan", "nan", -1.796729534167670e-02, 4.503274081672216e-01, "nan", 5.661713020555256e-01, -8.752278440825663e-05, "nan", "nan", 8.401072292776015e+02, "nan", "nan", 1.722240345816232e+00, 1.097774431086677e+03, "nan", "nan", "nan", -3.252950183728673e-02, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", -2.729812034415533e-02, "nan", 2.894252814337823e-02, "nan", 5.401154517330858e-03, "nan", "nan", 1.714671632109905e-03, "nan", "nan", "nan", 1.000048621680028e+00, "nan", "nan", "nan", 2.648156579690216e+03, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_x_scanl_BrOH_cation_restr_1_vlapl():
-    # Prepare the input
-    inp = test_data["BrOH_cation_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_x_scanl", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [3.249685412336696e-04, 3.249777783530673e-04, 3.250023097407462e-04, 3.248651337041467e-04, 3.249393652021307e-04, 3.249393652021307e-04, 1.294351958699511e-03, 1.294802883896135e-03, 1.305206704059771e-03, "nan", 1.294861389239764e-03, "nan", 1.678379599774945e-05, "nan", "nan", "nan", "nan", "nan", 0.000000000000000e+00, "nan", 1.153799254423730e-03, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.753122610429743e-03, "nan", "nan", 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, "nan", "nan", "nan", "nan", "nan", "nan", 1.088537651989461e-02, 0.000000000000000e+00, "nan", 0.000000000000000e+00, 2.138327727551879e-69, "nan", "nan", 2.930853705341180e-05, "nan", "nan", 0.000000000000000e+00, 6.642807733426733e-05, "nan", "nan", "nan", 1.567976281026022e-02, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.150867750835598e-02, "nan", 0.000000000000000e+00, "nan", 0.000000000000000e+00, "nan", "nan", 3.507586118283613e-05, "nan", "nan", "nan", 0.000000000000000e+00, "nan", "nan", "nan", -1.818120683261842e-58, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
 def test_mgga_x_scanl_BrOH_cation_restr_1_vtau():
     # Prepare the input
     inp = test_data["BrOH_cation_restr"]

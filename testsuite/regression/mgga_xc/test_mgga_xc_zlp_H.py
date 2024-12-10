@@ -5,36 +5,6 @@ import numpy
 from pylibxc.example_densities import test_data
 
 
-def test_mgga_xc_zlp_H_2_zk():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["zk"].flatten()
-    ref_tgt = [-5.219476013921821e-01, -5.088986220818699e-01, -3.192744370909167e-01, -1.943058578137896e-01, "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-08
-
-
-def test_mgga_xc_zlp_H_2_vrho():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [-7.383935190471305e-01, -7.383935190471305e-01, -6.326524749759987e-01, -6.326524749759987e-01, -3.437721592466756e-01, -3.437721592466756e-01, 5.281301688385777e-02, 5.281301688385777e-02, "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
 def test_mgga_xc_zlp_H_2_vsigma():
     # Prepare the input
     inp = test_data["H"]

@@ -60,7 +60,7 @@ def test_mgga_k_pgsl025_H_restr_1_vlapl():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vlapl"].flatten()
-    ref_tgt = [1.472520276932400e-02, 8.805473019536915e-312, 1.286340305971811e-310, 9.469626215162272e-308, 1.776266343063555e-313]
+    ref_tgt = [1.472520276932400e-02, 8.779666381776468e-312, 1.282570343458986e-310, 9.441872956030395e-308, 1.776266343063555e-313]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 

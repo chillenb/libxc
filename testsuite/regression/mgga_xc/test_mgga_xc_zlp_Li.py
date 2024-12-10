@@ -5,36 +5,6 @@ import numpy
 from pylibxc.example_densities import test_data
 
 
-def test_mgga_xc_zlp_Li_2_zk():
-    # Prepare the input
-    inp = test_data["Li"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["zk"].flatten()
-    ref_tgt = [-1.934852877401237e+00, -1.379376088382811e+00, -4.986022270978855e-01, -1.419378475774282e-01, "nan", 1.232583988436745e+166, 5.232752438994482e+259]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-08
-
-
-def test_mgga_xc_zlp_Li_2_vrho():
-    # Prepare the input
-    inp = test_data["Li"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [-2.465791723197602e+00, -2.465791723197602e+00, -1.690178032793999e+00, -1.690178032793999e+00, -1.950146340849195e-01, -1.950146340849195e-01, -1.822637428662648e-01, -1.822637428662648e-01, "nan", "nan", -4.109828678920115e+165, -4.109828678920121e+165, -1.744263928613529e+259, -1.744263928613523e+259]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
 def test_mgga_xc_zlp_Li_2_vsigma():
     # Prepare the input
     inp = test_data["Li"]

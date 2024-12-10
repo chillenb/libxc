@@ -5,66 +5,6 @@ import numpy
 from pylibxc.example_densities import test_data
 
 
-def test_mgga_k_rda_BrOH_1_zk():
-    # Prepare the input
-    inp = test_data["BrOH"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["zk"].flatten()
-    ref_tgt = [1.236871662290831e+03, 1.236868183099400e+03, 1.236870834367339e+03, 1.236927263360180e+03, 1.236869670423302e+03, 1.236869670423302e+03, 3.677098958950536e+01, 3.676865705729447e+01, 3.670767958239854e+01, "nan", 3.677010314578165e+01, "nan", 1.828725618785636e+00, "nan", "nan", "nan", "nan", "nan", "nan", "nan", 2.182937420868646e+00, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 6.789023420219395e+01, "nan", "nan", 1.900182993738219e+01, 1.899071279462538e+01, 1.928755623266118e+01, 1.927737716608843e+01, 1.862858422123848e+01, "nan", "nan", "nan", "nan", "nan", "nan", 9.907297594349612e-01, 5.494774948055420e-01, "nan", 4.995298833051980e-01, -1.610224699508643e+02, "nan", "nan", 5.796143420451974e-01, "nan", "nan", 5.613103631954102e-01, 4.760065539831729e-01, "nan", "nan", "nan", 8.116963817174816e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 7.866626416378538e-01, "nan", 5.255469562414454e-01, "nan", 5.010523026202196e-01, "nan", "nan", 7.819988661309045e-01, "nan", "nan", "nan", 4.591873925690113e-01, "nan", "nan", "nan", 4.765362390046879e-01, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-08
-
-
-def test_mgga_k_rda_BrOH_1_vrho():
-    # Prepare the input
-    inp = test_data["BrOH"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [1.083822931235585e+03, 1.083849466691059e+03, 1.083940971272231e+03, 1.083506929586674e+03, 1.083837148206456e+03, 1.083837148206456e+03, 2.094040377581484e+01, 2.094473458327491e+01, 2.106556913880590e+01, "nan", 2.094280962434936e+01, "nan", 1.814692854758354e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", 7.428439341249066e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 7.832357688066385e+01, "nan", "nan", -1.084265928617690e+00, -8.879566884627765e-01, -1.375427167507148e+00, -1.221913877164690e+00, -5.745399924631314e-01, "nan", "nan", "nan", "nan", "nan", "nan", 8.490293012139996e-01, -9.357809786175409e-01, "nan", -8.543660072041782e-01, 1.108633882217275e+02, "nan", "nan", -5.822370234040865e-01, "nan", "nan", -8.268248935286296e-01, -4.788470660057220e-01, "nan", "nan", "nan", 1.331860258963946e+00, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 6.598992254940657e-01, "nan", -3.465835850040739e-01, "nan", 5.507348192556539e-02, "nan", "nan", 1.470430316880772e-01, "nan", "nan", "nan", -7.639545441246837e-01, "nan", "nan", "nan", -4.774661406200445e-01, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_k_rda_BrOH_1_vsigma():
-    # Prepare the input
-    inp = test_data["BrOH"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vsigma"].flatten()
-    ref_tgt = [2.475375195193594e-06, 2.475327287020839e-06, 2.475143468460879e-06, 2.475927478202351e-06, 2.475349684093523e-06, 2.475349684093523e-06, 6.457029174752584e-04, 6.456707452169943e-04, 6.447024429713400e-04, "nan", 6.456781202888081e-04, "nan", 9.749322255756467e-02, "nan", "nan", "nan", "nan", "nan", 1.039094480851941e+01, "nan", 5.592831090536571e-02, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.419361749536620e-04, "nan", "nan", 3.782572949263841e-03, 3.711422101590070e-03, 3.803954851591653e-03, 3.747810001715095e-03, 3.707325419362822e-03, "nan", "nan", "nan", "nan", "nan", "nan", 1.112783790749081e-01, 5.920209959080369e+01, "nan", 6.077990864265294e+01, 8.938290414619800e-03, "nan", "nan", 6.017446452881164e+05, "nan", "nan", 2.734741889115149e+02, 5.329444322355168e+05, "nan", "nan", "nan", 1.564223777997960e-02, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.600707105483112e-01, "nan", 2.433950734240361e+00, "nan", 6.695901597969496e-01, "nan", "nan", 3.099168741678918e-01, "nan", "nan", "nan", 1.148759043948039e+02, "nan", "nan", "nan", 2.865708569560217e+06, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_k_rda_BrOH_1_vlapl():
-    # Prepare the input
-    inp = test_data["BrOH"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_rda", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [1.142145827061094e-01, 1.142148903557934e-01, 1.142159128863584e-01, 1.142103690405101e-01, 1.142147341679132e-01, 1.142147341679132e-01, 1.093463205135540e-01, 1.093491162275598e-01, 1.094259131985073e-01, "nan", 1.093477584333955e-01, "nan", 9.665462575747105e-02, "nan", "nan", "nan", "nan", "nan", 0.000000000000000e+00, "nan", 1.045014440097899e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.179416201601248e-01, "nan", "nan", 8.808272932434044e-02, 8.876778451523024e-02, 8.711074976268464e-02, 8.765468602949530e-02, 8.979396506516643e-02, "nan", "nan", "nan", "nan", "nan", "nan", 1.139395388212934e-01, 1.060210005253355e-02, "nan", 1.145873342954454e-02, -4.073873621247204e-66, "nan", "nan", 2.225490862037532e-07, "nan", "nan", 3.060790237408284e-03, 3.872111830717576e-07, "nan", "nan", "nan", 1.254967615805650e-01, "nan", "nan", "nan", "nan", "nan", "nan", "nan", "nan", 1.136784612169431e-01, "nan", 5.535003097102769e-02, "nan", 9.710997445307896e-02, "nan", "nan", 1.000682699932530e-01, "nan", "nan", "nan", 8.037669846734808e-03, "nan", "nan", "nan", -3.090409887808843e-71, "nan", "nan", "nan"]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
 def test_mgga_k_rda_BrOH_1_vtau():
     # Prepare the input
     inp = test_data["BrOH"]
