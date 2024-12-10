@@ -19,6 +19,12 @@ def test_mgga_x_r2scanl_BrOH_1_zk():
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
+# test_mgga_x_r2scanl_BrOH_1_vrho() not generated due to NaN
+
+# test_mgga_x_r2scanl_BrOH_1_vsigma() not generated due to NaN
+
+# test_mgga_x_r2scanl_BrOH_1_vlapl() not generated due to NaN
+
 
 def test_mgga_x_r2scanl_BrOH_1_vtau():
     # Prepare the input

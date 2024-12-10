@@ -4,6 +4,10 @@ import pytest
 import numpy
 from pylibxc.example_densities import test_data
 
+# test_mgga_xc_lp90_H_2_zk() not generated due to NaN
+
+# test_mgga_xc_lp90_H_2_vrho() not generated due to NaN
+
 
 def test_mgga_xc_lp90_H_2_vsigma():
     # Prepare the input

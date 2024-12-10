@@ -137,6 +137,7 @@ from pylibxc.example_densities import test_data
     for target in test_targets:
         if any([math.isnan(x) for x in out[target].flatten()]):
             print(f'NaN found in {func=} {system=} {target=}, not generating test')
+            fout.write(f'\n# test_{func}_{system}_{nspin}_{target}() not generated due to NaN in reference data\n')
             continue
         fout.write(f'''
 
