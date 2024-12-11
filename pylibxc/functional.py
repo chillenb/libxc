@@ -89,7 +89,7 @@ core.xc_func_set_fhc_enforcement.argtypes = (_xc_func_p, ctypes.c_int)
 
 
 # Bind computers
-def _build_comute_argtype(num_nd, num_nd_write):
+def _build_computer_argtype(num_nd, num_nd_write):
     """
     Small function to build the correct argtypes for the LibXC computers
     """
@@ -100,31 +100,31 @@ def _build_comute_argtype(num_nd, num_nd_write):
 
 
 # LDA computers
-core.xc_lda.argtypes = _build_comute_argtype(1, 5)
-core.xc_lda_exc_vxc.argtypes = _build_comute_argtype(1, 2)
-core.xc_lda_exc.argtypes = _build_comute_argtype(1, 1)
-core.xc_lda_vxc.argtypes = _build_comute_argtype(1, 1)
-core.xc_lda_fxc.argtypes = _build_comute_argtype(1, 1)
-core.xc_lda_kxc.argtypes = _build_comute_argtype(1, 1)
-core.xc_lda_lxc.argtypes = _build_comute_argtype(1, 1)
+core.xc_lda.argtypes = _build_computer_argtype(1, 5)
+core.xc_lda_exc_vxc.argtypes = _build_computer_argtype(1, 2)
+core.xc_lda_exc.argtypes = _build_computer_argtype(1, 1)
+core.xc_lda_vxc.argtypes = _build_computer_argtype(1, 1)
+core.xc_lda_fxc.argtypes = _build_computer_argtype(1, 1)
+core.xc_lda_kxc.argtypes = _build_computer_argtype(1, 1)
+core.xc_lda_lxc.argtypes = _build_computer_argtype(1, 1)
 
 # GGA computers
-core.xc_gga.argtypes = _build_comute_argtype(2, 15)
-core.xc_gga_exc_vxc.argtypes = _build_comute_argtype(2, 3)
-core.xc_gga_exc.argtypes = _build_comute_argtype(2, 1)
-core.xc_gga_vxc.argtypes = _build_comute_argtype(2, 2)
-core.xc_gga_fxc.argtypes = _build_comute_argtype(2, 3)
-core.xc_gga_kxc.argtypes = _build_comute_argtype(2, 4)
-core.xc_gga_lxc.argtypes = _build_comute_argtype(2, 5)
+core.xc_gga.argtypes = _build_computer_argtype(2, 15)
+core.xc_gga_exc_vxc.argtypes = _build_computer_argtype(2, 3)
+core.xc_gga_exc.argtypes = _build_computer_argtype(2, 1)
+core.xc_gga_vxc.argtypes = _build_computer_argtype(2, 2)
+core.xc_gga_fxc.argtypes = _build_computer_argtype(2, 3)
+core.xc_gga_kxc.argtypes = _build_computer_argtype(2, 4)
+core.xc_gga_lxc.argtypes = _build_computer_argtype(2, 5)
 
 # MGGA computers
-core.xc_mgga.argtypes = _build_comute_argtype(4, 70)
-core.xc_mgga_exc_vxc.argtypes = _build_comute_argtype(4, 5)
-core.xc_mgga_exc.argtypes = _build_comute_argtype(4, 1)
-core.xc_mgga_vxc.argtypes = _build_comute_argtype(4, 4)
-core.xc_mgga_fxc.argtypes = _build_comute_argtype(4, 10)
-core.xc_mgga_kxc.argtypes = _build_comute_argtype(4, 20)
-core.xc_mgga_kxc.argtypes = _build_comute_argtype(4, 35)
+core.xc_mgga.argtypes = _build_computer_argtype(4, 70)
+core.xc_mgga_exc_vxc.argtypes = _build_computer_argtype(4, 5)
+core.xc_mgga_exc.argtypes = _build_computer_argtype(4, 1)
+core.xc_mgga_vxc.argtypes = _build_computer_argtype(4, 4)
+core.xc_mgga_fxc.argtypes = _build_computer_argtype(4, 10)
+core.xc_mgga_kxc.argtypes = _build_computer_argtype(4, 20)
+core.xc_mgga_kxc.argtypes = _build_computer_argtype(4, 35)
 
 # hybrid functions
 core.xc_hyb_exx_coef.argtypes = (_xc_func_p, )
@@ -713,6 +713,7 @@ class LibXCFunctional:
         args = [self.xc_func, ctypes.c_size_t(npoints)]
         if self.get_family() in [flags.XC_FAMILY_LDA, flags.XC_FAMILY_HYB_LDA]:
             input_labels   = ["rho"]
+            args.extend([   inp[x] for x in  input_labels])
             input_num_args = 1
 
             output_labels = [
@@ -734,14 +735,13 @@ class LibXCFunctional:
                             self.xc_func_sizes, npoints, do_kxc)
             output = _check_arrays(output, output_labels[4:5],
                             self.xc_func_sizes, npoints, do_lxc)
-
-            args.extend([   inp[x] for x in  input_labels])
             args.extend([output[x] for x in output_labels])
 
             core.xc_lda(*args)
 
         elif self.get_family() in [flags.XC_FAMILY_GGA, flags.XC_FAMILY_HYB_GGA]:
             input_labels   = ["rho", "sigma"]
+            args.extend([   inp[x] for x in  input_labels])
             input_num_args = 2
 
             output_labels = [
@@ -763,8 +763,6 @@ class LibXCFunctional:
                             self.xc_func_sizes, npoints, do_kxc)
             output = _check_arrays(output, output_labels[10:15],
                             self.xc_func_sizes, npoints, do_lxc)
-
-            args.extend([   inp[x] for x in  input_labels])
             args.extend([output[x] for x in output_labels])
 
             core.xc_gga(*args)
@@ -772,10 +770,19 @@ class LibXCFunctional:
         elif self.get_family() in [flags.XC_FAMILY_MGGA, flags.XC_FAMILY_HYB_MGGA]:
             # Build input args
             input_labels = ["rho", "sigma"]
+            args.extend([   inp[x] for x in  input_labels])
             if self._needs_laplacian:
                 input_labels.append("lapl")
+                args.extend(inp["lapl"])
+            else:
+                args.insert(-1, np.empty(1))  # Add none ptr to laplacian
+
             if self._needs_tau:
                 input_labels.append("tau")
+                args.extend(inp["tau"])
+            else:
+                args.insert(-1, np.empty(1))  # Add none ptr to tau
+
             input_num_args = 4 # this is how it needs to be
 
             output_labels = [
@@ -810,12 +817,6 @@ class LibXCFunctional:
                             self.xc_func_sizes, npoints, do_kxc)
             output = _check_arrays(output, output_labels[35:70],
                             self.xc_func_sizes, npoints, do_lxc)
-
-            args.extend([   inp[x] for x in  input_labels])
-            if not self._needs_laplacian:
-                args.insert(-1, np.empty(1))  # Add none ptr to laplacian
-            if not self._needs_tau:
-                args.insert(-1, np.empty(1))  # Add none ptr to tau
             args.extend([output[x] for x in output_labels])
 
             core.xc_mgga(*args)
