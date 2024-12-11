@@ -151,7 +151,7 @@ def test_{func}_{system}_{nspin}_{target}():
     # Evaluate the data
     out = feval.compute(inp, do_exc={do_e}, do_vxc={do_v}, do_fxc={do_f}, do_kxc={do_k}, do_lxc={do_l})
     tgt = out["{target}"].flatten()
-    ref_tgt = [''')
+    ref_tgt = numpy.asarray([''')
         # Print out reference value we just computed
         for ival, val in enumerate(out[target].flatten()):
             if ival:
@@ -161,7 +161,7 @@ def test_{func}_{system}_{nspin}_{target}():
                 fout.write(f'"nan"')
             else:
                 fout.write(f'{val:.15e}')
-        fout.write(f''']
+        fout.write(f'''])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < {thresholds[target]}
 ''')
