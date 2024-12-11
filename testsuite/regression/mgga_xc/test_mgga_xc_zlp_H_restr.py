@@ -63,18 +63,3 @@ def test_mgga_xc_zlp_H_restr_1_vlapl():
     ref_tgt = [3.996148302295790e-03, 4.460364545617625e-03, 7.649197475980783e-03, 2.874483499219548e-02, 6.110955472853309e-01]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
-
-
-def test_mgga_xc_zlp_H_restr_1_vtau():
-    # Prepare the input
-    inp = test_data["H_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05

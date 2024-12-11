@@ -60,21 +60,6 @@ def test_mgga_k_pgsl025_Li_restr_1_vlapl():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vlapl"].flatten()
-    ref_tgt = [2.729297388148183e-05, 5.849300687391300e-314, 7.333840956963719e-311, 4.958612287724578e-309, 2.211339017656251e-319, 1.904400487156423e-314, 0.000000000000000e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_k_pgsl025_Li_restr_1_vtau():
-    # Prepare the input
-    inp = test_data["Li_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_pgsl025", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [2.729297388148183e-05, 5.877274982180416e-314, 7.368915245218906e-311, 4.982326982075852e-309, 2.211339017656251e-319, 1.904400487156423e-314, 0.000000000000000e+00]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

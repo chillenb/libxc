@@ -15,7 +15,7 @@ def test_mgga_c_revm11_Li_restr_1_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-1.880460748984068e-01, -1.007320191289521e-01, -9.404609728378973e-03, -1.488970243433075e-02, -7.289487993234874e-03, -1.428995420474929e-02, -3.772987406802554e-04]
+    ref_tgt = [2.776338059093297e-02, -6.400696001010932e-02, -1.325764057206594e-01, 8.977209922307151e-03, -4.067507086800502e-02, -5.482649007814135e-02, -1.447464607102135e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_c_revm11_Li_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-1.787911427159022e-01, -2.850911473623117e-01, -6.245996033475699e-03, 6.952357276528760e-02, -2.125434611512065e-02, -1.806016363857010e-02, -4.988274133238701e-04]
+    ref_tgt = [2.911221983442238e-01, 6.412331528951719e-02, 3.580255343611418e-02, 1.041828291007905e-01, 1.129913075262328e-02, -6.929887743062031e-02, -1.913695827720397e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_mgga_c_revm11_Li_restr_1_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [-2.962810114064860e-04, -1.359816372223278e-04, 8.274154351764264e-03, -2.867927124245591e+01, 5.811269328518242e+01, 1.003851828687910e-03, 1.097292488737156e-05]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_c_revm11_Li_restr_1_vlapl():
-    # Prepare the input
-    inp = test_data["Li_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_c_revm11", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [-8.935387997985491e-04, -5.445795895670917e-04, 4.757449796341530e-01, -3.282599797362980e+01, 4.484475335343284e+02, 4.469239022648595e+05, 4.476007525079437e+12]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_mgga_c_revm11_Li_restr_1_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [4.206028563317916e-02, 3.254561318786900e-02, -6.872876594301951e-03, -8.396813103181383e-01, -1.111658393811406e-01, -3.304155888082508e-08, -9.292538883689416e-20]
+    ref_tgt = [-3.702722956874375e-02, -1.971860814681294e-02, -3.444994934719475e-02, -2.542472323883505e+00, -5.075767069906519e-01, -6.341605298281277e-08, -1.782935199437917e-19]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

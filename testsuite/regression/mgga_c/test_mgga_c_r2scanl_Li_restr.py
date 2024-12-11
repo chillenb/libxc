@@ -63,18 +63,3 @@ def test_mgga_c_r2scanl_Li_restr_1_vlapl():
     ref_tgt = [-5.977968862319224e-04, -7.198225363975069e-04, 0.000000000000000e+00, -4.034384316153744e-02, 0.000000000000000e+00, 4.223984053411919e-07, -2.772190862023538e-09]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
-
-
-def test_mgga_c_r2scanl_Li_restr_1_vtau():
-    # Prepare the input
-    inp = test_data["Li_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_c_r2scanl", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05

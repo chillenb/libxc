@@ -15,7 +15,7 @@ def test_hyb_mgga_xc_r2scan50_H_2_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-3.648925707615376e-01, -3.270283845763932e-01, -1.907776216075268e-01, -4.849822053897693e-02, -1.085448592047901e-03]
+    ref_tgt = [-3.648925707616579e-01, -3.231954862294131e-01, -1.890111095677057e-01, -5.620581772489777e-02, -4.276592931063342e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_hyb_mgga_xc_r2scan50_H_2_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-4.864452159796401e-01, -2.199798770977095e-01, -4.322158336928570e-01, -2.101325999806031e-01, -2.511381263075008e-01, -1.813309671284328e-01, -6.901421506667574e-02, -1.091393373285240e-01, -3.968277442505423e-02, -9.891645420874053e-02]
+    ref_tgt = [-4.864452159795082e-01, -2.199798771797754e-01, -4.365327419305381e-01, -2.248651304197485e-01, -2.574486576590563e-01, -1.953126949442377e-01, -7.093349406942465e-02, -6.720020452820051e-02, -5.546743821443678e-03, -2.631119543777522e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_hyb_mgga_xc_r2scan50_H_2_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [-3.199199028321679e-03, 8.472540629547595e-03, 4.236270314773800e-03, -5.333252068580645e-03, 9.771615395811520e-03, 4.885807697905760e-03, -2.708193345010432e-02, 9.485995032994637e-02, 4.742997516497319e-02, 3.353291064240587e-01, 2.306501582130026e+01, 1.153250791065013e+01, 8.077110193631734e+04, 4.144222864515410e+05, 2.072111432257705e+05]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_hyb_mgga_xc_r2scan50_H_2_vlapl():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("hyb_mgga_xc_r2scan50", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [-3.199199028431560e-03, 8.472540629170969e-03, 4.236270314585485e-03, 1.364081449094987e-04, 3.403763782906917e-02, 1.701881891453459e-02, 1.307641966221184e-01, 5.650023033281263e-01, 2.825011516640631e-01, 3.929235226788323e+01, 8.011573786929814e+01, 4.005786893464908e+01, -2.861406805165878e+06, -5.483325457409739e+06, -2.741662728704871e+06]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_hyb_mgga_xc_r2scan50_H_2_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [7.630169261945751e-03, -9.984991666357742e-03, 9.787476185837677e-03, -8.263185613481468e-03, 1.102154215995082e-02, -1.625762109617745e-02, 1.617626489536936e-03, -7.556336542252602e-02, -5.504683611090933e-02, -1.419598229148764e-01]
+    ref_tgt = [7.630169262038806e-03, -9.984991666083156e-03, 9.140351587557057e-03, -1.949059479586212e-02, 1.186854534474604e-02, -3.972896439791220e-02, -9.533134176545148e-04, -2.228881521195472e-03, -2.442696201589555e-07, -3.110832471563338e-07]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

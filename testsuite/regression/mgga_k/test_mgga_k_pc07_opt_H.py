@@ -63,18 +63,3 @@ def test_mgga_k_pc07_opt_H_2_vlapl():
     ref_tgt = [1.726105642915644e-01, 0.000000000000000e+00, 2.047468051054137e-01, 0.000000000000000e+00, 8.773003497398441e-02, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 2.279677961583883e-03, 0.000000000000000e+00]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
-
-
-def test_mgga_k_pc07_opt_H_2_vtau():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_pc07_opt", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05

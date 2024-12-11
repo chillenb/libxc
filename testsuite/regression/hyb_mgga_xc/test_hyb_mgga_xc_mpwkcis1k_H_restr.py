@@ -15,7 +15,7 @@ def test_hyb_mgga_xc_mpwkcis1k_H_restr_1_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-3.230604089281424e-01, -3.040776845297981e-01, -1.954033116189351e-01, -7.690421433115020e-02, -1.338746401152788e-04]
+    ref_tgt = [-3.862583877368923e-01, -3.199781434330631e-01, -1.999156867666679e-01, -6.474443102592219e-02, -4.292501437326910e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_hyb_mgga_xc_mpwkcis1k_H_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-4.524729383254961e-01, -3.871239169309868e-01, -2.281995956488599e-01, -7.502223841769219e-02, -4.952491584788848e-04]
+    ref_tgt = [-4.157003094388402e-01, -4.146214382690065e-01, -2.577137843608929e-01, -8.309161242655752e-02, -5.626660146378410e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_hyb_mgga_xc_mpwkcis1k_H_restr_1_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [1.178531410398001e+00, 7.830746360037028e-03, -2.630850966210962e-02, -2.710212732927601e+00, 2.609148240313431e+02]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_hyb_mgga_xc_mpwkcis1k_H_restr_1_vlapl():
-    # Prepare the input
-    inp = test_data["H_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("hyb_mgga_xc_mpwkcis1k", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [1.184608079732322e+00, 7.091338187047841e-02, 4.465249331015975e-01, 6.548004504987294e+01, 8.620443108100757e+06]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_hyb_mgga_xc_mpwkcis1k_H_restr_1_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [-2.837522792298889e+00, -3.725857605969275e-02, -1.950159851225302e-02, -2.638336574083354e-03, -4.359714079457937e-06]
+    ref_tgt = [-2.837522796572317e+00, -1.625061056852718e-38, -2.870675264471657e-37, -3.897208904099282e-34, -2.183411192232545e-27]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

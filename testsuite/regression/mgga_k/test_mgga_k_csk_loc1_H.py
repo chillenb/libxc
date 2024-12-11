@@ -63,18 +63,3 @@ def test_mgga_k_csk_loc1_H_2_vlapl():
     ref_tgt = [2.171250000000001e-01, 0.000000000000000e+00, 1.735351464399358e-01, 0.000000000000000e+00, 5.434659857298333e-02, 0.000000000000000e+00, 4.709837540925887e-04, 0.000000000000000e+00, 1.336627027721980e-09, 0.000000000000000e+00]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
-
-
-def test_mgga_k_csk_loc1_H_2_vtau():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_k_csk_loc1", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05

@@ -15,7 +15,7 @@ def test_mgga_x_ms2bs_H_restr_1_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-5.442004747837013e-01, -4.977662349558600e-01, -3.019448629720945e-01, -1.003193306053872e-01, -5.292872382679913e-03]
+    ref_tgt = [-5.442004747840153e-01, -4.491626390243054e-01, -2.586507989837433e-01, -6.849758181005002e-02, -3.223697226720568e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_x_ms2bs_H_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-7.250563215080762e-01, -6.381870197369163e-01, -3.636507091582795e-01, -1.123157845911518e-01, -7.053425697841677e-03]
+    ref_tgt = [-7.250563215077763e-01, -6.407110281527846e-01, -3.460395296520898e-01, -9.144413771844488e-02, -4.298272033406630e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_mgga_x_ms2bs_H_restr_1_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [-8.349029851924978e-03, -1.184509387716077e-02, -8.504770593413791e-02, -2.413659426450035e+00, -2.986538156626179e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_x_ms2bs_H_restr_1_vlapl():
-    # Prepare the input
-    inp = test_data["H_restr"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_x_ms2bs", 1)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [-8.349029847097345e-03, -6.292638692058085e-02, -1.681627191433677e-01, -3.231242701689546e+01, -6.490070214884715e+06]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_mgga_x_ms2bs_H_restr_1_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [1.146538072354448e-11, 1.102898971345581e-10, 1.175170511772375e-10, -6.104163341148482e-18, 7.140437613728689e-19]
+    ref_tgt = [-1.514510116524065e-19, 5.344502057485986e-02, 1.408630208195821e-03, 1.345601949865795e-04, 7.939677844860276e-09]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

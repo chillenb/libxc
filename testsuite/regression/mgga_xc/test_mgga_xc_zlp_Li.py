@@ -4,9 +4,9 @@ import pytest
 import numpy
 from pylibxc.example_densities import test_data
 
-# test_mgga_xc_zlp_Li_2_zk() not generated due to NaN
+# test_mgga_xc_zlp_Li_2_zk() not generated due to NaN in reference data
 
-# test_mgga_xc_zlp_Li_2_vrho() not generated due to NaN
+# test_mgga_xc_zlp_Li_2_vrho() not generated due to NaN in reference data
 
 
 def test_mgga_xc_zlp_Li_2_vsigma():
@@ -35,20 +35,5 @@ def test_mgga_xc_zlp_Li_2_vlapl():
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vlapl"].flatten()
     ref_tgt = [1.116518260168652e-03, 1.116518260168652e-03, 1.619144564985010e-03, 1.619144564985010e-03, 6.835947677298155e-03, 6.835947677298150e-03, 1.592567539510538e-02, 1.592567539510185e-02, 4.023965041066737e-02, 4.023965037815749e-02, 1.745458077097484e-01, 1.745458077097484e-01, 9.822140971797491e+00, 9.822140971797495e+00]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_xc_zlp_Li_2_vtau():
-    # Prepare the input
-    inp = test_data["Li"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_xc_zlp", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vtau"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

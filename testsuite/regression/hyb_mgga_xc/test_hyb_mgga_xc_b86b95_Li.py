@@ -15,24 +15,11 @@ def test_hyb_mgga_xc_b86b95_Li_2_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-1.340319588223586e+00, -9.670577080297558e-01, -3.219466367876163e-01, -1.154799541446738e-01, -5.948641816491945e-02, -1.614111822757033e-02, -3.025072142865996e-04]
+    ref_tgt = [-1.310049554049570e+00, -9.326858628204535e-01, -4.111334070892450e-01, -1.159063701101813e-01, -8.333702244743821e-02, -1.614001531815108e-02, -1.895106226318744e+02]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
-
-def test_hyb_mgga_xc_b86b95_Li_2_vrho():
-    # Prepare the input
-    inp = test_data["Li"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("hyb_mgga_xc_b86b95", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vrho"].flatten()
-    ref_tgt = [-1.673141791789220e+00, -1.674480528606616e+00, -1.147865351196524e+00, -1.148662760318349e+00, -3.107025867900750e-01, -3.107759287802679e-01, -1.495323510671654e-01, -2.129966237549838e-02, -5.454168756478986e-02, -6.525783934067336e-04, -2.165876009013675e-02, -2.140704826623550e-02, -4.427195104150102e-04, -3.093068655621045e-04]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
+# test_hyb_mgga_xc_b86b95_Li_2_vrho() not generated due to NaN in reference data
 
 
 def test_hyb_mgga_xc_b86b95_Li_2_vsigma():
@@ -45,22 +32,7 @@ def test_hyb_mgga_xc_b86b95_Li_2_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [-1.572479069396398e-04, 0.000000000000000e+00, -1.567491445758618e-04, -6.337614729757772e-04, 0.000000000000000e+00, -6.320113661810376e-04, -5.541256075933051e-02, 0.000000000000000e+00, -5.534428392776448e-02, -5.604620253628254e-01, 0.000000000000000e+00, 5.378615650348985e+00, -5.013472719013067e+01, 0.000000000000000e+00, 6.615202605901680e+02, 6.888911375494196e-01, 0.000000000000000e+00, -1.750870615655427e-01, 1.778819571583416e+04, 0.000000000000000e+00, 5.650776298853333e-02]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_hyb_mgga_xc_b86b95_Li_2_vlapl():
-    # Prepare the input
-    inp = test_data["Li"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("hyb_mgga_xc_b86b95", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [-1.049470314184311e-04, 0.000000000000000e+00, -1.046176099086092e-04, -8.484251394387608e-05, 0.000000000000000e+00, -8.637678822705620e-05, 4.682572525007446e+00, 0.000000000000000e+00, 4.579048705800508e+00, 2.058318374917473e+00, 0.000000000000000e+00, 5.649063800257172e+00, 2.286810048981273e+03, 0.000000000000000e+00, 6.632508543915026e+02, 1.193814816847380e-04, 0.000000000000000e+00, 8.771345115992075e-03, 5.497290808982469e-11, 0.000000000000000e+00, 3.225550179062795e+20]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +47,6 @@ def test_hyb_mgga_xc_b86b95_Li_2_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [-1.535420278481735e-03, -1.534572015769308e-03, -1.754667312298453e-03, -1.753913243294452e-03, -4.414736987621208e-04, -4.386980204772437e-04, -9.437213115668527e-02, -1.176431803685671e-07, -1.559459506086730e-02, -3.855053562272995e-11, -1.373116706943418e-07, -1.256638198788993e-07, -8.551510937470655e-12, -4.468127138692301e-12]
+    ref_tgt = [-2.873107274983154e-03, -2.871683944547766e-03, -5.332155022208856e-03, -5.324538201822170e-03, -5.428445283005290e-02, -5.432066785617735e-02, -1.392078133987678e-01, -1.176431803685671e-07, -5.378184861852190e-01, -3.855053355621430e-11, -5.743566782136254e-11, -1.256638198788993e-07, -5.361832595959912e-22, -6.047408678635331e+02]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

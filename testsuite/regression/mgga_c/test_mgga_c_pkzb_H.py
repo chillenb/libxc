@@ -15,7 +15,7 @@ def test_mgga_c_pkzb_H_2_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-9.573825066055974e-11, 1.503100248434475e-10, 4.708737653263961e-10, 2.060122200327023e-10, 7.799817433762869e-14]
+    ref_tgt = [2.935297838124740e-12, -3.118079983577066e-02, -2.518518753751072e-02, -1.327196220086343e-02, -1.569796946832078e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_c_pkzb_H_2_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-6.412739195420776e-02, 5.729811749678577e+00, -3.635752531259152e-02, 2.439619452185355e+02, -1.617478312566145e-02, 1.367372761498995e+02, -3.172042329399246e-04, 1.122784994519240e+00, -4.659855568508325e-10, 4.242139795834857e-08]
+    ref_tgt = [-6.412739203652180e-02, 5.729811765330128e+00, -3.508811108100187e-02, -2.505892439941811e-01, -2.872211520391200e-02, -1.951032357820481e-01, -1.571598845536356e-02, -9.049038861325961e-02, -2.001666154573393e-03, -7.028460031535858e-03]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_mgga_c_pkzb_H_2_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [2.623015055840214e+00, 5.030726427241555e-02, -4.143300318127426e+12, 4.503387742106855e-02, 3.123315152611108e-02, -5.130494536571065e+10, 9.419907390216793e-02, 1.287861335141517e-01, -2.147073757350027e+10, 9.521219183663827e-02, 2.696193409851190e-01, -4.133112697146044e+08, 9.936036086606874e-04, 3.039825665341116e-03, -4.509723061657564e+02]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_mgga_c_pkzb_H_2_vlapl():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("mgga_c_pkzb", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [2.623015059775090e+00, 5.030726432403695e-02, -4.143300324422852e+12, 2.611078413273257e-02, 5.222156826546515e-02, 2.611078410924460e-02, 2.231029244572280e-01, 4.462058489144561e-01, 2.231029243733294e-01, 4.386184838832986e+01, 8.772369677665974e+01, 4.386184755781915e+01, 8.905587071022807e+06, 1.781117414204561e+07, 8.905587070505178e+06]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_mgga_c_pkzb_H_2_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [-6.255850514791164e+00, 3.314640249401688e+00, -7.742626410776918e-02, 4.104395627065472e-02, -3.240645987159939e-02, 1.717659005272462e-02, -6.238667469010670e-04, 3.306490158795314e-04, -6.809429418164221e-10, 3.607790608239124e-10]
+    ref_tgt = [-6.255850533922394e+00, 3.314640259538302e+00, 5.014341661433584e-45, 5.015323694811061e-45, 8.421436650632151e-44, 8.422009016238110e-44, 1.595430357772155e-35, 1.595430693164418e-35, 7.059212617507213e-29, 7.059212618423918e-29]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

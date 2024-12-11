@@ -15,7 +15,7 @@ def test_hyb_mgga_xc_mpwb1k_H_2_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = [-3.482804167584024e-01, -3.250450353219492e-01, -2.025107908138504e-01, -7.993962129787134e-02, -2.145194177699785e-04]
+    ref_tgt = [-4.018868034177912e-01, -3.210840254161496e-01, -2.050336806797325e-01, -2.178857815475435e-01, -1.214553385278369e+01]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_hyb_mgga_xc_mpwb1k_H_2_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = [-4.639829329618380e-01, -2.638962389450027e-01, -4.070983932802443e-01, -2.439192485430376e-01, -2.313760248778569e-01, -1.780651619035293e-01, -6.656193436924585e-02, -3.716537509663862e-02, -7.904510576935243e-04, -8.062502798544475e-06]
+    ref_tgt = [-4.257306504151120e-01, -2.638962389447704e-01, -4.113267838324426e-01, -2.518762289127052e-01, -2.315941350569481e-01, -1.961133971744914e-01, 1.660178719713415e-02, -6.015799346401174e-03, 4.751642786045061e+00, -4.693930258717257e-04]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,22 +45,7 @@ def test_hyb_mgga_xc_mpwb1k_H_2_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = [-1.871103986648429e-03, 0.000000000000000e+00, 1.737704374687904e+20, -8.666515573425876e-03, 0.000000000000000e+00, 1.557037836188098e+20, -6.802779148054977e-02, 0.000000000000000e+00, 1.069289566183098e+20, -4.413971785353957e+00, 0.000000000000000e+00, 1.012426419284584e+19, 4.032159180286870e+02, 0.000000000000000e+00, 6.156766463398428e+12]
-    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
-    assert error < 5e-05
-
-
-def test_hyb_mgga_xc_mpwb1k_H_2_vlapl():
-    # Prepare the input
-    inp = test_data["H"]
-
-    # Get the functional
-    feval = pylibxc.LibXCFunctional("hyb_mgga_xc_mpwb1k", 2)
-
-    # Evaluate the data
-    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
-    tgt = out["vlapl"].flatten()
-    ref_tgt = [0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00]
+    ref_tgt = [4.366150697046730e-04, 0.000000000000000e+00, 1.737704374684869e+20, 1.169175665184877e-02, 0.000000000000000e+00, 1.659431574012555e+20, 3.841302637888241e-01, 0.000000000000000e+00, 1.295099455916076e+20, 1.829709521139216e+03, 0.000000000000000e+00, 2.040446009187332e+16, 5.547052243009064e+11, 0.000000000000000e+00, 1.592471599040551e+15]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -75,6 +60,6 @@ def test_hyb_mgga_xc_mpwb1k_H_2_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = [-1.574338818834315e-02, 0.000000000000000e+00, -9.757973543600244e-03, 0.000000000000000e+00, -9.002796676653201e-03, 0.000000000000000e+00, -9.556339337177224e-04, 0.000000000000000e+00, -1.542838856662459e-07, 0.000000000000000e+00]
+    ref_tgt = [-1.574338818800718e-02, 0.000000000000000e+00, -1.906745283611571e-02, 0.000000000000000e+00, -4.501873531899959e-02, 0.000000000000000e+00, -3.326396544035907e-01, 0.000000000000000e+00, -1.772739378606671e+01, 0.000000000000000e+00]
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
