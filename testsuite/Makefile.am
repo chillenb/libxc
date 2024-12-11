@@ -20,7 +20,7 @@ xc_consistency_SOURCES = xc-consistency.c
 xc_consistency_LDADD = -L../src/ -lxc -lm
 xc_consistency_CPPFLAGS = -I$(srcdir)/../src/ -I$(top_builddir)/src
 
-dist_noinst_DATA = CMakeLists.txt $(srcdir)/df_repo/*.data $(srcdir)/regression/*/*.bz2 $(srcdir)/input/*
+dist_noinst_DATA = CMakeLists.txt $(srcdir)/df_repo/*.data $(srcdir)/regression/*/*.py
 
 # Delete temporary working directories from testsuite runs, if they are older than MINTIME (in minutes)
 MINTIME=600
