@@ -136,7 +136,7 @@ core.xc_hyb_cam_coef.argtypes = (_xc_func_p, ctypes.POINTER(ctypes.c_double),
 
 ### Build LibXCFunctional class
 
-def _check_arrays(current_arrays, fields, sizes, factor, required):
+def _check_arrays(current_arrays, fields, sizes, factor, required, needs_lapl=False, needs_tau=False):
     """
     A specialized function built to construct and check the sizes of arrays given to the LibXCFunctional class.
     """
@@ -146,7 +146,13 @@ def _check_arrays(current_arrays, fields, sizes, factor, required):
         current_arrays = {}
 
     for label in fields:
-        if required:
+        # Determine if we need the output array
+        label_required = required
+        if (label.find('lapl') != -1) and not needs_lapl:
+            label_required = False
+        if (label.find('tau') != -1) and not needs_tau:
+            label_required = False
+        if label_required:
             size = sizes[label]
             current_arrays[label] = np.zeros((factor, size))
         else:
@@ -773,13 +779,13 @@ class LibXCFunctional:
             args.extend([   inp[x] for x in  input_labels])
             if self._needs_laplacian:
                 input_labels.append("lapl")
-                args.extend(inp["lapl"])
+                args.extend([inp["lapl"]])
             else:
                 args.insert(-1, np.empty(1))  # Add none ptr to laplacian
 
             if self._needs_tau:
                 input_labels.append("tau")
-                args.extend(inp["tau"])
+                args.extend([inp["tau"]])
             else:
                 args.insert(-1, np.empty(1))  # Add none ptr to tau
 
@@ -808,15 +814,15 @@ class LibXCFunctional:
 
             # Build input args
             output = _check_arrays(output, output_labels[0:1],
-                            self.xc_func_sizes, npoints, do_exc)
+                            self.xc_func_sizes, npoints, do_exc, self._needs_laplacian, self._needs_tau)
             output = _check_arrays(output, output_labels[1:5],
-                            self.xc_func_sizes, npoints, do_vxc)
+                            self.xc_func_sizes, npoints, do_vxc, self._needs_laplacian, self._needs_tau)
             output = _check_arrays(output, output_labels[5:15],
-                            self.xc_func_sizes, npoints, do_fxc)
+                            self.xc_func_sizes, npoints, do_fxc, self._needs_laplacian, self._needs_tau)
             output = _check_arrays(output, output_labels[15:35],
-                            self.xc_func_sizes, npoints, do_kxc)
+                            self.xc_func_sizes, npoints, do_kxc, self._needs_laplacian, self._needs_tau)
             output = _check_arrays(output, output_labels[35:70],
-                            self.xc_func_sizes, npoints, do_lxc)
+                            self.xc_func_sizes, npoints, do_lxc, self._needs_laplacian, self._needs_tau)
             args.extend([output[x] for x in output_labels])
 
             core.xc_mgga(*args)
