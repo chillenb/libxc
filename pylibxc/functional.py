@@ -250,8 +250,8 @@ class LibXCFunctional:
         self._flags = core.xc_func_info_get_flags(self.xc_func_info)
 
         # Set needed flags
-        self._needs_laplacian = self._flags & flags.XC_FLAGS_NEEDS_LAPLACIAN
-        self._needs_tau = self._flags & flags.XC_FLAGS_NEEDS_TAU
+        self._needs_laplacian = (self._flags & flags.XC_FLAGS_NEEDS_LAPLACIAN) != 0
+        self._needs_tau = (self._flags & flags.XC_FLAGS_NEEDS_TAU) != 0
 
         # Set derivatives
         self._have_exc = (self._flags & flags.XC_FLAGS_HAVE_EXC) != 0
