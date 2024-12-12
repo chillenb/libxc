@@ -4,9 +4,35 @@ import pytest
 import numpy
 from pylibxc.example_densities import test_data
 
-# test_mgga_xc_lp90_H_2_zk() not generated due to NaN in reference data
 
-# test_mgga_xc_lp90_H_2_vrho() not generated due to NaN in reference data
+def test_mgga_xc_lp90_H_2_zk():
+    # Prepare the input
+    inp = test_data["H"]
+
+    # Get the functional
+    feval = pylibxc.LibXCFunctional("mgga_xc_lp90", 2)
+
+    # Evaluate the data
+    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
+    tgt = out["zk"].flatten()
+    ref_tgt = numpy.asarray([-5.935581000277548e-01, -4.932970509147474e-01, -2.860253867541708e-01, -8.098807956170472e-02, -6.125340658195137e-02])
+    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
+    assert error < 5e-08
+
+
+def test_mgga_xc_lp90_H_2_vrho():
+    # Prepare the input
+    inp = test_data["H"]
+
+    # Get the functional
+    feval = pylibxc.LibXCFunctional("mgga_xc_lp90", 2)
+
+    # Evaluate the data
+    out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
+    tgt = out["vrho"].flatten()
+    ref_tgt = numpy.asarray([-6.961763391024407e-01, -6.961763391024406e-01, -6.351872709925913e-01, -6.351872709925913e-01, -3.700179337072254e-01, -3.700179337072254e-01, -8.221929376145413e-02, -8.221929376145413e-02, 4.826371828669831e-01, 4.826371828669831e-01])
+    error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
+    assert error < 5e-05
 
 
 def test_mgga_xc_lp90_H_2_vsigma():

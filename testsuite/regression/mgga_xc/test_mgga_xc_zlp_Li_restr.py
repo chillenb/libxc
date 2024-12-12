@@ -15,7 +15,7 @@ def test_mgga_xc_zlp_Li_restr_1_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = numpy.asarray([-1.934852877401237e+00, -1.379376088382811e+00, -4.986022270978855e-01, -1.419378475774282e-01, -7.839312417722029e-02, -4.319514398052729e+00, -1.064619205039293e+02])
+    ref_tgt = numpy.asarray([-3.761586782181290e+00, -1.418277190086019e+00, -3.882059339518433e-01, -1.532218880112835e-01, -6.826997238473903e-02, 5.067854864372801e+01, 5.177549717751716e+06])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_xc_zlp_Li_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = numpy.asarray([-2.465791723197602e+00, -1.690178032793999e+00, -1.950146340849195e-01, -1.822637428662648e-01, -4.298031426680845e-02, 5.725705698421351e+00, 1.419488882979991e+02])
+    ref_tgt = numpy.asarray([-1.843809279810509e+00, -1.677003066540948e+00, -2.319953697156254e-01, -1.784933157147327e-01, -4.635834995338482e-02, -1.261240504248142e+01, -1.725756421855302e+06])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 

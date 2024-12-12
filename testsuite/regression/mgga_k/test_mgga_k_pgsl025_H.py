@@ -15,7 +15,7 @@ def test_mgga_k_pgsl025_H_2_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = numpy.asarray([2.066281409935124e+00, 1.736477037277009e+00, 7.522460995922980e-01, 5.084508659250025e-01, 6.849985057062444e-01])
+    ref_tgt = numpy.asarray([9.080041143924957e+00, 1.934478802216939e+00, 7.522822979616238e-01, 7.591674350039136e-01, 3.672640435510541e+02])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_k_pgsl025_H_2_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = numpy.asarray([3.336937604728249e+00, 7.201451365118239e-17, 2.504249042918211e+00, 3.703732953920772e-16, 4.580597381165741e-01, 9.041329390419950e-17, -5.084350780014926e-01, 3.331035728414453e-16, -6.849985137050892e-01, -1.231706895681280e-16])
+    ref_tgt = numpy.asarray([-8.352661951921510e+00, 3.758934471354000e-16, 2.174246101351659e+00, 3.382468834045865e-16, 4.579994075010312e-01, 1.724646664329357e-16, -9.262960264668546e-01, 3.000882735596553e-16, -6.116500807236284e+02, -5.700182671868096e-14])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -60,6 +60,6 @@ def test_mgga_k_pgsl025_H_2_vlapl():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vlapl"].flatten()
-    ref_tgt = numpy.asarray([9.276296466520794e-03, 0.000000000000000e+00, 5.551595316945093e-312, 0.000000000000000e+00, 2.964393875047479e-323, 0.000000000000000e+00, 0.000000000000000e+00, 0.000000000000000e+00, 6.156229417802604e-312, 0.000000000000000e+00])
+    ref_tgt = numpy.asarray([-1.395795405602692e-01, 0.000000000000000e+00, -2.609747612093886e-02, 0.000000000000000e+00, 6.032951270878390e-04, 0.000000000000000e+00, 1.880062226861905e-01, 0.000000000000000e+00, 1.525972382066758e+02, 0.000000000000000e+00])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

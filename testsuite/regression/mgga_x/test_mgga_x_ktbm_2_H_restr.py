@@ -15,7 +15,7 @@ def test_mgga_x_ktbm_2_H_restr_1_zk():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["zk"].flatten()
-    ref_tgt = numpy.asarray([-5.578283252746391e-01, -4.678893371547892e-01, -2.523260453592676e-01, -7.118656382854224e-02, -3.452790329663692e-03])
+    ref_tgt = numpy.asarray([-5.578283252730275e-01, -5.155266969737431e-01, -3.105031584410015e-01, -7.918841716839774e-02, -3.678604423875372e-03])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-08
 
@@ -30,7 +30,7 @@ def test_mgga_x_ktbm_2_H_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = numpy.asarray([-7.421434581202102e-01, -6.695262468173696e-01, -3.632082808168998e-01, -9.171891637590227e-02, -4.603424384547604e-03])
+    ref_tgt = numpy.asarray([-7.421434581223577e-01, -6.172081110542728e-01, -3.470563098475590e-01, -1.005213544794998e-01, -4.727907912305117e-03])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -45,7 +45,7 @@ def test_mgga_x_ktbm_2_H_restr_1_vsigma():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vsigma"].flatten()
-    ref_tgt = numpy.asarray([-4.283712411915695e-02, -5.792563795911280e-02, -3.328909756069753e-01, -2.742831208382689e+00, -5.857575973870401e+02])
+    ref_tgt = numpy.asarray([-4.283712411909711e-02, -6.005817032896601e-02, -3.430863759926173e-01, -2.044411393919175e+00, -3.772658514805285e+02])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
@@ -60,6 +60,6 @@ def test_mgga_x_ktbm_2_H_restr_1_vtau():
     # Evaluate the data
     out = feval.compute(inp, do_exc=True, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vtau"].flatten()
-    ref_tgt = numpy.asarray([6.819610701359718e-02, 5.835960751948311e-02, 3.218476817830608e-02, -3.772051888683162e-03, -2.593188143031533e-07])
+    ref_tgt = numpy.asarray([6.819610701331005e-02, 7.556394109313475e-02, 1.083674996394853e-01, 1.545833968765395e-02, 2.585947080924801e-04])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05

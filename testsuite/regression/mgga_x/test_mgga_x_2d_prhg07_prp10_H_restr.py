@@ -15,7 +15,7 @@ def test_mgga_x_2d_prhg07_prp10_H_restr_1_vrho():
     # Evaluate the data
     out = feval.compute(inp, do_exc=False, do_vxc=True, do_fxc=False, do_kxc=False, do_lxc=False)
     tgt = out["vrho"].flatten()
-    ref_tgt = numpy.asarray([-1.435104180225391e+00, -1.151951562904960e+00, -5.832282388222254e-01, -1.851357220668991e-01, -6.788752503701863e-02])
+    ref_tgt = numpy.asarray([-1.289920138274996e+00, -1.095202724550122e+00, -5.870899052325880e-01, -2.392714991644076e-01, -1.045934757648263e-01])
     error = numpy.max(numpy.abs(tgt-ref_tgt))/(1.0+numpy.max([numpy.abs(tgt), numpy.abs(ref_tgt)]))
     assert error < 5e-05
 
