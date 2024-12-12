@@ -714,6 +714,16 @@ class LibXCFunctional:
         npoints = int(inp["rho"].size / self._spin)
         if (inp["rho"].size % self._spin):
             raise ValueError("Rho input has an invalid shape, must be divisible by %d" % self._spin)
+        # Check the consistency of the input data
+        if self._spin == 2:
+            sizes = {"rho" : 2, "sigma" : 3, "tau" : 2, "lapl" : 2}
+            for var in inp:
+                if inp[var].size != sizes[var]*npoints:
+                    raise ValueError(f"{var} input has an invalid shape, should have length {sizes[var]}*npoints")
+        else:
+            for var in inp:
+                if inp[var].size != npoints:
+                    raise ValueError(f"{var} input has an invalid shape, should have length npoints")
 
         # Find the right compute function
         args = [self.xc_func, ctypes.c_size_t(npoints)]
