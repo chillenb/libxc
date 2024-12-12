@@ -156,7 +156,7 @@ def _check_arrays(current_arrays, fields, sizes, factor, required, needs_lapl=Fa
             size = sizes[label]
             current_arrays[label] = np.zeros((factor, size))
         else:
-            current_arrays[label] = None # np.empty((1))
+            current_arrays[label] = None
 
     return current_arrays
 
@@ -791,15 +791,15 @@ class LibXCFunctional:
                 input_labels.append("lapl")
                 args.extend([inp["lapl"]])
             else:
-                args.insert(-1, np.empty(1))  # Add none ptr to laplacian
+                args.extend([np.zeros(self._spin*npoints)])  # Add none ptr for laplacian
 
             if self._needs_tau:
                 input_labels.append("tau")
                 args.extend([inp["tau"]])
             else:
-                args.insert(-1, np.empty(1))  # Add none ptr to tau
+                args.extend([np.zeros(self._spin*npoints)])  # Add none ptr for tau
 
-            input_num_args = 4 # this is how it needs to be
+            input_num_args = 4
 
             output_labels = [
                 "zk",                                                                # 1, 1
@@ -834,7 +834,6 @@ class LibXCFunctional:
             output = _check_arrays(output, output_labels[35:70],
                             self.xc_func_sizes, npoints, do_lxc, self._needs_laplacian, self._needs_tau)
             args.extend([output[x] for x in output_labels])
-
             core.xc_mgga(*args)
 
         else:
