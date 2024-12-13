@@ -791,13 +791,13 @@ class LibXCFunctional:
                 input_labels.append("lapl")
                 args.extend([inp["lapl"]])
             else:
-                args.extend([np.empty((1))])  # Add none ptr for laplacian
+                args.extend([np.array([])])  # Add none ptr for laplacian
 
             if self._needs_tau:
                 input_labels.append("tau")
                 args.extend([inp["tau"]])
             else:
-                args.extend([np.empty((1))])  # Add none ptr for tau
+                args.extend([np.array([])])  # Add none ptr for tau
 
             input_num_args = 4
 
